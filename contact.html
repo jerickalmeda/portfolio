@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Bossjer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        accent: '#06b6d4',
+                        'accent-light': '#67e8f9',
+                        'surface': '#f8fafc',
+                        'surface-dark': '#1e293b',
+                        'text-primary': '#0f172a',
+                        'text-secondary': '#64748b',
+                        'gradient-start': '#0f172a',
+                        'gradient-end': '#334155',
+                    },
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .gradient-mesh {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #475569 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary font-display tracking-tight">
+                        Bossjer<span class="text-accent">.</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Home</a>
+                    <a href="tech-stack.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Expertise</a>
+                    <a href="projects.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Work</a>
+                    <a href="about.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">About</a>
+                    <a href="contact.html" class="text-primary font-semibold border-b-2 border-accent pb-1">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Home</a>
+                <a href="tech-stack.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Expertise</a>
+                <a href="projects.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Work</a>
+                <a href="about.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-primary font-semibold">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 gradient-mesh text-white min-h-[60vh] flex items-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+            <div class="text-center animate-slide-up">
+                <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-accent-light mb-6">
+                    <div class="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></div>
+                    Get In Touch
+                </div>
+                  <h1 class="text-5xl md:text-6xl font-bold font-display mb-6 leading-tight">
+                    Let's Build Your
+                    <span class="block text-accent bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">
+                        WordPress Success
+                    </span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl mb-6 text-slate-300 font-light max-w-3xl mx-auto leading-relaxed">
+                    Ready to enhance your online presence with professional WordPress development or comprehensive virtual assistance? 
+                    Let's discuss how I can help your business grow and succeed.
+                </p>
+            </div>
+        </div>
+    </section>    <!-- Contact Methods -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Email -->
+                <div class="group card-hover bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-2xl border border-blue-200">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </div>                    <h3 class="text-2xl font-bold text-primary mb-4 text-center">Email Me</h3>
+                    <p class="text-text-secondary mb-6 text-center leading-relaxed">Need WordPress development or virtual assistance? Send me a detailed email about your project requirements.</p>
+                    <div class="text-center">
+                        <a href="mailto:bossjer@example.com" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                            <span>bossjer@example.com</span>
+                            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="group card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border border-green-200">
+                    <div class="bg-gradient-to-br from-green-500 to-green-700 text-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </div>                    <h3 class="text-2xl font-bold text-primary mb-4 text-center">Call Me</h3>
+                    <p class="text-text-secondary mb-6 text-center leading-relaxed">Discuss your WordPress project or virtual assistant needs over the phone. Available during business hours.</p>
+                    <div class="text-center">
+                        <a href="tel:+1234567890" class="inline-flex items-center text-green-600 hover:text-green-700 font-semibold transition-colors">
+                            <span>+1 (234) 567-8900</span>
+                            <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Social -->
+                <div class="text-center p-8 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow">
+                    <div class="bg-purple-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-share-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Social Media</h3>
+                    <p class="text-gray-600 mb-4">Connect with me on social platforms for updates and professional networking.</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-github text-xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Send Me a Message</h2>
+                <p class="text-gray-600 text-lg">Fill out the form below and I'll get back to you as soon as possible</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Name -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                placeholder="Your full name">
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                placeholder="your.email@example.com">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Company -->
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Company/Organization</label>
+                            <input type="text" id="company" name="company"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                                placeholder="Your company name">
+                        </div>
+
+                        <!-- Project Type -->
+                        <div>
+                            <label for="project-type" class="block text-sm font-medium text-gray-700 mb-2">Project Type</label>
+                            <select id="project-type" name="project-type"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                                <option value="">Select project type</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="mobile-app">Mobile App</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="api-development">API Development</option>
+                                <option value="consulting">Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Budget -->
+                    <div>
+                        <label for="budget" class="block text-sm font-medium text-gray-700 mb-2">Project Budget</label>
+                        <select id="budget" name="budget"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                            <option value="">Select budget range</option>
+                            <option value="under-5k">Under $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="50k-plus">$50,000+</option>
+                            <option value="discuss">Let's discuss</option>
+                        </select>
+                    </div>
+
+                    <!-- Subject -->
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+                        <input type="text" id="subject" name="subject" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                            placeholder="Brief subject of your message">
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="6" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-vertical"
+                            placeholder="Tell me about your project, goals, timeline, and any specific requirements..."></textarea>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div>
+                        <label for="timeline" class="block text-sm font-medium text-gray-700 mb-2">Preferred Timeline</label>
+                        <select id="timeline" name="timeline"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+                            <option value="">Select timeline</option>
+                            <option value="asap">ASAP</option>
+                            <option value="1-month">Within 1 month</option>
+                            <option value="2-3-months">2-3 months</option>
+                            <option value="3-6-months">3-6 months</option>
+                            <option value="6-months-plus">6+ months</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" id="submit-btn"
+                            class="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                            <span id="submit-text">Send Message</span>
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="success-message" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <span>Thank you! Your message has been sent successfully. I'll get back to you within 24 hours.</span>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div id="error-message" class="hidden mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        <span>Oops! There was an error sending your message. Please try again or contact me directly via email.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 text-lg">Quick answers to common questions</p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-start justify-between cursor-pointer" onclick="toggleFAQ(1)">
+                        <h3 class="text-lg font-semibold text-dark">What's your typical project timeline?</h3>
+                        <i id="faq-icon-1" class="fas fa-chevron-down text-gray-400 mt-1"></i>
+                    </div>
+                    <div id="faq-content-1" class="hidden mt-4 text-gray-700">
+                        <p>Project timelines vary depending on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-6 months. During our initial consultation, I'll provide a detailed timeline based on your specific requirements.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-start justify-between cursor-pointer" onclick="toggleFAQ(2)">
+                        <h3 class="text-lg font-semibold text-dark">Do you work with clients remotely?</h3>
+                        <i id="faq-icon-2" class="fas fa-chevron-down text-gray-400 mt-1"></i>
+                    </div>
+                    <div id="faq-content-2" class="hidden mt-4 text-gray-700">
+                        <p>Absolutely! I work with clients globally through video calls, project management tools, and collaborative platforms. I'm experienced in remote work and ensure clear communication throughout the entire project lifecycle.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-start justify-between cursor-pointer" onclick="toggleFAQ(3)">
+                        <h3 class="text-lg font-semibold text-dark">What technologies do you specialize in?</h3>
+                        <i id="faq-icon-3" class="fas fa-chevron-down text-gray-400 mt-1"></i>
+                    </div>
+                    <div id="faq-content-3" class="hidden mt-4 text-gray-700">
+                        <p>I specialize in modern web technologies including React, Vue.js, Node.js, Python, and various databases. I also work with cloud platforms like AWS and Google Cloud. Check out my <a href="tech-stack.html" class="text-primary hover:text-secondary">Tech Stack page</a> for a comprehensive list.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-start justify-between cursor-pointer" onclick="toggleFAQ(4)">
+                        <h3 class="text-lg font-semibold text-dark">Do you provide ongoing support?</h3>
+                        <i id="faq-icon-4" class="fas fa-chevron-down text-gray-400 mt-1"></i>
+                    </div>
+                    <div id="faq-content-4" class="hidden mt-4 text-gray-700">
+                        <p>Yes, I offer various support packages including bug fixes, updates, feature additions, and maintenance. We can discuss ongoing support options that fit your needs and budget during the project planning phase.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-start justify-between cursor-pointer" onclick="toggleFAQ(5)">
+                        <h3 class="text-lg font-semibold text-dark">How do you handle project payments?</h3>
+                        <i id="faq-icon-5" class="fas fa-chevron-down text-gray-400 mt-1"></i>
+                    </div>
+                    <div id="faq-content-5" class="hidden mt-4 text-gray-700">
+                        <p>I typically work with milestone-based payments. Usually, 30% upfront, 40% at mid-project, and 30% upon completion. For larger projects, we can arrange a custom payment schedule that works for both parties. I accept various payment methods including bank transfers and digital payments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Hours -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Availability & Response Time</h2>
+                <p class="text-gray-600 text-lg">When you can expect to hear from me</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Response Time -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-500 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-clock text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Response Time</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Email: Within 4-6 hours (business days)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Contact form: Within 24 hours
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Phone calls: Same day (if during business hours)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            Project updates: Daily during active projects
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Business Hours -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-calendar text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Business Hours</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex justify-between">
+                            <span>Monday - Friday:</span>
+                            <span class="font-medium">9:00 AM - 6:00 PM EST</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday:</span>
+                            <span class="font-medium">10:00 AM - 2:00 PM EST</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday:</span>
+                            <span class="font-medium">Email only</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Time Zone:</span>
+                            <span class="font-medium">Eastern Standard Time</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 p-4 bg-blue-50 rounded-lg">
+                <p class="text-blue-800">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    For urgent matters outside business hours, please mention "URGENT" in your email subject line.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2025 Bossjer. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="mailto:bossjer@example.com" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ Toggle
+        function toggleFAQ(number) {
+            const content = document.getElementById(`faq-content-${number}`);
+            const icon = document.getElementById(`faq-icon-${number}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        // Contact Form Handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            // Hide previous messages
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                // Reset form
+                this.reset();
+                
+                // Show success message
+                successMessage.classList.remove('hidden');
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Message';
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2000);
+        });
+
+        // Form validation
+        const form = document.getElementById('contact-form');
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', clearValidation);
+        });
+        
+        function validateField(e) {
+            const field = e.target;
+            const value = field.value.trim();
+            
+            if (!value) {
+                field.classList.add('border-red-500', 'bg-red-50');
+                field.classList.remove('border-gray-300');
+            } else if (field.type === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    field.classList.add('border-red-500', 'bg-red-50');
+                    field.classList.remove('border-gray-300');
+                } else {
+                    field.classList.remove('border-red-500', 'bg-red-50');
+                    field.classList.add('border-green-500', 'bg-green-50');
+                }
+            } else {
+                field.classList.remove('border-red-500', 'bg-red-50');
+                field.classList.add('border-green-500', 'bg-green-50');
+            }
+        }
+        
+        function clearValidation(e) {
+            const field = e.target;
+            field.classList.remove('border-red-500', 'bg-red-50', 'border-green-500', 'bg-green-50');
+            field.classList.add('border-gray-300');
+        }
+    </script>
+</body>
+</html>

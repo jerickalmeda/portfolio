@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Bossjer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#F59E0B',
+                        dark: '#1F2937'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary">Bossjer</a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Home</a>
+                    <a href="tech-stack.html" class="text-gray-700 hover:text-primary transition-colors">Tech Stack</a>
+                    <a href="projects.html" class="text-primary font-semibold">Projects</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Home</a>
+                <a href="tech-stack.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Tech Stack</a>
+                <a href="projects.html" class="block px-3 py-2 text-primary font-semibold">Projects</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-primary">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 bg-gradient-to-br from-primary to-secondary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">My Projects</h1>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    A showcase of my WordPress development expertise, featuring custom e-commerce solutions, corporate platforms, and comprehensive maintenance services.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active px-6 py-2 bg-primary text-white rounded-full font-medium transition-colors" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-medium transition-colors" data-filter="wordpress">
+                    WordPress
+                </button>
+                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-medium transition-colors" data-filter="ecommerce">
+                    E-Commerce
+                </button>
+                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-medium transition-colors" data-filter="custom">
+                    Custom Solutions
+                </button>
+                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-medium transition-colors" data-filter="maintenance">
+                    Maintenance
+                </button>
+            </div>
+        </div>
+    </section>    <!-- Projects Grid -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8" id="projects-grid">
+                  <!-- WordPress E-Commerce Store -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress ecommerce">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x300/3B82F6/FFFFFF?text=WordPress+E-Commerce+Store" alt="WordPress E-Commerce Store" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="wpecommerce">
+                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-dark">Premium WordPress E-Commerce Store</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            A fully customized WooCommerce-powered online store with advanced product management, secure payment processing, inventory tracking, and optimized performance. Features custom PHP development and seamless third-party integrations.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-dark mb-2">Key Features:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Custom WooCommerce theme development</li>
+                                <li>• Advanced product filtering & search</li>
+                                <li>• Multi-payment gateway integration</li>
+                                <li>• Automated inventory management</li>
+                                <li>• SEO optimization & performance tuning</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">WordPress</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">WooCommerce</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">cPanel</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-code mr-2"></i>Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>                <!-- Corporate WordPress Platform -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress custom">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x300/1E40AF/FFFFFF?text=Corporate+WordPress+Platform" alt="Corporate WordPress Platform" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="corporate">
+                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-dark">Corporate WordPress Platform</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            A sophisticated multi-site WordPress platform for a corporate client featuring custom post types, advanced user roles, automated content workflows, and seamless third-party integrations. Built for scalability and enterprise-level performance.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-dark mb-2">Key Features:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Multi-site WordPress network setup</li>
+                                <li>• Custom post types & field management</li>
+                                <li>• Advanced user role & permission system</li>
+                                <li>• API integrations & automated workflows</li>
+                                <li>• Performance optimization & caching</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">WordPress Multisite</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">PHP</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Custom Plugins</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">REST API</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Ubuntu Server</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-code mr-2"></i>Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>                <!-- Custom WordPress Plugin Development -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress custom">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x300/F59E0B/FFFFFF?text=Custom+WordPress+Plugin" alt="Custom WordPress Plugin" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="plugin">
+                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-dark">Custom WordPress Plugin Development</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Bespoke WordPress plugin development including advanced booking systems, membership management, custom post types, API integrations, and specialized business logic. Built with security and performance optimization as top priorities.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-dark mb-2">Key Features:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Custom booking & reservation system</li>
+                                <li>• Advanced user role management</li>
+                                <li>• Third-party API integrations (CRM, Payment)</li>
+                                <li>• Custom dashboard & analytics</li>
+                                <li>• Mobile-responsive admin interface</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">WordPress</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">PHP</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">REST API</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">jQuery</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-cog mr-2"></i>Plugin Demo
+                            </a>
+                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-code mr-2"></i>Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- WordPress Website Maintenance & Security -->
+<div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="maintenance wordpress">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x300/10B981/FFFFFF?text=WordPress+Maintenance+%26+Security" alt="WordPress Maintenance & Security" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="maintenance">
+                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-dark">WordPress Maintenance & Security Service</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Comprehensive WordPress maintenance service including regular updates, security monitoring, backup management, performance optimization, and 24/7 uptime monitoring. Serving 50+ WordPress sites with 99.9% uptime guarantee.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-dark mb-2">Key Services:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Weekly WordPress core & plugin updates</li>
+                                <li>• Advanced security monitoring & malware removal</li>
+                                <li>• Automated daily backups to cloud storage</li>
+                                <li>• Performance optimization & speed improvements</li>
+                                <li>• 24/7 uptime monitoring & instant alerts</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">WordPress</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">Security</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Backup Management</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">Performance</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Monitoring</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-chart-line mr-2"></i>Service Details
+                            </a>
+                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-headset mr-2"></i>Contact VA
+                            </a>
+                        </div>
+                    </div>
+                </div>                <!-- WordPress Migration & Optimization Service -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress custom">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x300/8B5CF6/FFFFFF?text=WordPress+Migration+%26+Optimization" alt="WordPress Migration & Optimization" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="migration">
+                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-dark">WordPress Migration & Optimization Service</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Comprehensive WordPress migration and optimization service featuring seamless hosting transfers, performance improvements, security hardening, and database optimization. Specialized in complex migrations with zero downtime guarantee.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-dark mb-2">Key Services:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Zero-downtime hosting migrations</li>
+                                <li>• Database optimization & cleanup</li>
+                                <li>• Performance tuning (50%+ speed improvement)</li>
+                                <li>• Security hardening & SSL implementation</li>
+                                <li>• SEO preservation & enhancement</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">WordPress</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">PHP</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full font-medium">cPanel/Plesk</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Performance</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-rocket mr-2"></i>Migration Guide
+                            </a>
+                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-headset mr-2"></i>Get Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>                <!-- WordPress SEO & Virtual Assistant Services -->
+                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress maintenance">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x300/F97316/FFFFFF?text=WordPress+SEO+%26+VA+Services" alt="WordPress SEO & VA Services" class="w-full h-64 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="seo-va">
+                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-dark">WordPress SEO & Virtual Assistant Services</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Comprehensive SEO optimization and virtual assistant services for WordPress websites. Features include technical SEO audits, content optimization, administrative support, and ongoing maintenance for 100+ clients.
+                        </p>
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-dark mb-2">Key Services:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Technical SEO audits & implementation</li>
+                                <li>• Content optimization & keyword research</li>
+                                <li>• Administrative support & documentation</li>
+                                <li>• Social media management & scheduling</li>
+                                <li>• Email marketing & client communication</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm rounded-full font-medium">WordPress</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">SEO</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Virtual Assistant</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">Content Marketing</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">Analytics</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-chart-line mr-2"></i>SEO Reports
+                            </a>
+                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                                <i class="fas fa-headset mr-2"></i>VA Services
+                            </a>
+                        </div>
+                    </div>
+                </div>            </div>
+        </div>
+    </section><!-- Image Gallery Modal -->
+    <div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="relative max-w-4xl w-full">
+                <button id="close-modal" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300 z-10">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="bg-white rounded-lg overflow-hidden">
+                    <div id="modal-header" class="p-4 bg-gray-50 border-b">
+                        <h3 id="modal-title" class="text-xl font-bold text-dark"></h3>
+                    </div>
+                    <div id="modal-body" class="p-0">
+                        <div id="image-carousel" class="relative">
+                            <div id="carousel-images" class="flex transition-transform duration-300 ease-in-out">
+                                <!-- Images will be inserted here -->
+                            </div>
+                            <button id="prev-btn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-dark rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition-colors">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button id="next-btn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-dark rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition-colors">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div id="image-thumbnails" class="p-4 bg-gray-50 flex gap-2 overflow-x-auto">
+                            <!-- Thumbnails will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2025 Bossjer. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="mailto:your.email@example.com" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>    <script>        // Project galleries data
+        const projectGalleries = {
+            wpecommerce: {
+                title: 'WordPress E-Commerce Store Gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/800x600/3B82F6/FFFFFF?text=WooCommerce+Homepage', alt: 'Custom WooCommerce homepage with modern design' },
+                    { src: 'https://via.placeholder.com/800x600/1E40AF/FFFFFF?text=Product+Catalog', alt: 'Advanced product catalog with filtering' },
+                    { src: 'https://via.placeholder.com/800x600/F59E0B/FFFFFF?text=Shopping+Cart', alt: 'Enhanced shopping cart functionality' },
+                    { src: 'https://via.placeholder.com/800x600/10B981/FFFFFF?text=Checkout+Process', alt: 'Secure multi-payment checkout' },
+                    { src: 'https://via.placeholder.com/800x600/8B5CF6/FFFFFF?text=Admin+Dashboard', alt: 'WordPress admin dashboard customization' },
+                    { src: 'https://via.placeholder.com/800x600/EF4444/FFFFFF?text=Mobile+Responsive', alt: 'Mobile-responsive e-commerce design' }
+                ]
+            },
+            corporate: {
+                title: 'Corporate WordPress Platform Gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/800x600/1E40AF/FFFFFF?text=Multisite+Network', alt: 'WordPress multisite network setup' },
+                    { src: 'https://via.placeholder.com/800x600/10B981/FFFFFF?text=Custom+Post+Types', alt: 'Custom post types and fields' },
+                    { src: 'https://via.placeholder.com/800x600/F59E0B/FFFFFF?text=User+Roles', alt: 'Advanced user roles and permissions' },
+                    { src: 'https://via.placeholder.com/800x600/8B5CF6/FFFFFF?text=API+Integrations', alt: 'REST API integrations and workflows' },
+                    { src: 'https://via.placeholder.com/800x600/EF4444/FFFFFF?text=Performance+Optimization', alt: 'Performance optimization results' }
+                ]
+            },
+            plugin: {
+                title: 'Custom WordPress Plugin Gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/800x600/F59E0B/FFFFFF?text=Plugin+Dashboard', alt: 'Custom plugin admin dashboard' },
+                    { src: 'https://via.placeholder.com/800x600/3B82F6/FFFFFF?text=Booking+System', alt: 'Advanced booking system interface' },
+                    { src: 'https://via.placeholder.com/800x600/10B981/FFFFFF?text=User+Management', alt: 'User role management features' },
+                    { src: 'https://via.placeholder.com/800x600/8B5CF6/FFFFFF?text=API+Integration', alt: 'Third-party API integrations' },
+                    { src: 'https://via.placeholder.com/800x600/EF4444/FFFFFF?text=Mobile+Interface', alt: 'Mobile-responsive admin interface' }
+                ]
+            },
+            maintenance: {
+                title: 'WordPress Maintenance Service Gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/800x600/10B981/FFFFFF?text=Security+Dashboard', alt: 'Security monitoring dashboard' },
+                    { src: 'https://via.placeholder.com/800x600/3B82F6/FFFFFF?text=Backup+Management', alt: 'Automated backup management' },
+                    { src: 'https://via.placeholder.com/800x600/F59E0B/FFFFFF?text=Performance+Reports', alt: 'Performance optimization reports' },
+                    { src: 'https://via.placeholder.com/800x600/8B5CF6/FFFFFF?text=Uptime+Monitoring', alt: '24/7 uptime monitoring system' },
+                    { src: 'https://via.placeholder.com/800x600/EF4444/FFFFFF?text=Update+Management', alt: 'WordPress core and plugin updates' }
+                ]
+            },
+            migration: {
+                title: 'WordPress Migration Service Gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/800x600/8B5CF6/FFFFFF?text=Migration+Process', alt: 'Zero-downtime migration process' },
+                    { src: 'https://via.placeholder.com/800x600/3B82F6/FFFFFF?text=Database+Optimization', alt: 'Database optimization and cleanup' },
+                    { src: 'https://via.placeholder.com/800x600/10B981/FFFFFF?text=Performance+Improvement', alt: '50%+ performance improvement results' },
+                    { src: 'https://via.placeholder.com/800x600/F59E0B/FFFFFF?text=Security+Hardening', alt: 'Security hardening implementation' },
+                    { src: 'https://via.placeholder.com/800x600/EF4444/FFFFFF?text=SEO+Preservation', alt: 'SEO preservation and enhancement' }
+                ]
+            },
+            'seo-va': {
+                title: 'WordPress SEO & VA Services Gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/800x600/F97316/FFFFFF?text=SEO+Audit+Reports', alt: 'Comprehensive SEO audit reports' },
+                    { src: 'https://via.placeholder.com/800x600/3B82F6/FFFFFF?text=Content+Optimization', alt: 'Content optimization strategies' },
+                    { src: 'https://via.placeholder.com/800x600/10B981/FFFFFF?text=Analytics+Dashboard', alt: 'SEO analytics and tracking' },
+                    { src: 'https://via.placeholder.com/800x600/8B5CF6/FFFFFF?text=VA+Services', alt: 'Virtual assistant service portfolio' },
+                    { src: 'https://via.placeholder.com/800x600/EF4444/FFFFFF?text=Client+Communication', alt: 'Client communication and reporting' }
+                ]
+            }
+        };
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                // Update active filter button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                button.classList.remove('bg-gray-200', 'text-gray-700');
+                button.classList.add('active', 'bg-primary', 'text-white');
+
+                // Filter project cards
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    let shouldShow = false;
+                    
+                    if (filter === 'all') {
+                        shouldShow = true;
+                    } else if (filter === 'wordpress' && category.includes('wordpress')) {
+                        shouldShow = true;
+                    } else if (filter === 'ecommerce' && category.includes('ecommerce')) {
+                        shouldShow = true;
+                    } else if (filter === 'custom' && category.includes('custom')) {
+                        shouldShow = true;
+                    } else if (filter === 'maintenance' && category.includes('maintenance')) {
+                        shouldShow = true;
+                    }
+                    
+                    if (shouldShow) {
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Gallery functionality
+        const galleryButtons = document.querySelectorAll('.gallery-btn');
+        const galleryModal = document.getElementById('gallery-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const carouselImages = document.getElementById('carousel-images');
+        const imageThumbnails = document.getElementById('image-thumbnails');
+        const closeModal = document.getElementById('close-modal');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let currentImageIndex = 0;
+        let currentGallery = [];
+
+        galleryButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectKey = button.getAttribute('data-project');
+                openGallery(projectKey);
+            });
+        });
+
+        function openGallery(projectKey) {
+            const gallery = projectGalleries[projectKey];
+            if (!gallery) return;
+
+            currentGallery = gallery.images;
+            currentImageIndex = 0;
+
+            modalTitle.textContent = gallery.title;
+            
+            // Populate carousel images
+            carouselImages.innerHTML = '';
+            gallery.images.forEach((image, index) => {
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.alt;
+                img.className = 'w-full h-96 object-cover flex-shrink-0';
+                carouselImages.appendChild(img);
+            });
+
+            // Populate thumbnails
+            imageThumbnails.innerHTML = '';
+            gallery.images.forEach((image, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = image.src;
+                thumbnail.alt = image.alt;
+                thumbnail.className = 'w-16 h-12 object-cover rounded cursor-pointer hover:opacity-75 transition-opacity';
+                if (index === 0) thumbnail.classList.add('ring-2', 'ring-primary');
+                
+                thumbnail.addEventListener('click', () => {
+                    showImage(index);
+                });
+                
+                imageThumbnails.appendChild(thumbnail);
+            });
+
+            galleryModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            showImage(0);
+        }
+
+        function showImage(index) {
+            currentImageIndex = index;
+            const translateX = -index * 100;
+            carouselImages.style.transform = `translateX(${translateX}%)`;
+
+            // Update thumbnail selection
+            const thumbnails = imageThumbnails.querySelectorAll('img');
+            thumbnails.forEach((thumb, i) => {
+                thumb.classList.toggle('ring-2', i === index);
+                thumb.classList.toggle('ring-primary', i === index);
+            });
+        }
+
+        function nextImage() {
+            const nextIndex = (currentImageIndex + 1) % currentGallery.length;
+            showImage(nextIndex);
+        }
+
+        function prevImage() {
+            const prevIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+            showImage(prevIndex);
+        }
+
+        // Gallery navigation
+        nextBtn.addEventListener('click', nextImage);
+        prevBtn.addEventListener('click', prevImage);
+
+        // Close modal
+        closeModal.addEventListener('click', closeGalleryModal);
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) {
+                closeGalleryModal();
+            }
+        });
+
+        function closeGalleryModal() {
+            galleryModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!galleryModal.classList.contains('hidden')) {
+                if (e.key === 'Escape') {
+                    closeGalleryModal();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

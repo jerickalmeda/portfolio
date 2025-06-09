@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Bossjer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        accent: '#06b6d4',
+                        'accent-light': '#67e8f9',
+                        'surface': '#f8fafc',
+                        'surface-dark': '#1e293b',
+                        'text-primary': '#0f172a',
+                        'text-secondary': '#64748b',
+                        'gradient-start': '#0f172a',
+                        'gradient-end': '#334155',
+                    },
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .gradient-mesh {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #475569 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary font-display tracking-tight">
+                        Bossjer<span class="text-accent">.</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Home</a>
+                    <a href="tech-stack.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Expertise</a>
+                    <a href="projects.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Work</a>
+                    <a href="about.html" class="text-primary font-semibold border-b-2 border-accent pb-1">About</a>
+                    <a href="contact.html" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-secondary transition-colors duration-200 font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Home</a>
+                <a href="tech-stack.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Expertise</a>
+                <a href="projects.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Work</a>
+                <a href="about.html" class="block px-3 py-2 text-primary font-semibold">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 gradient-mesh text-white min-h-[70vh] flex items-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-up">
+                    <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-accent-light mb-6">
+                        <div class="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></div>
+                        About Me
+                    </div>
+                      <h1 class="text-5xl md:text-6xl font-bold font-display mb-6 leading-tight">
+                        WordPress Developer &
+                        <span class="block text-accent bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">
+                            Virtual Assistant
+                        </span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl mb-6 text-slate-300 font-light leading-relaxed">
+                        I'm a specialized WordPress developer and virtual assistant with over 5 years of experience helping businesses establish and maintain their online presence. My passion lies in creating efficient WordPress solutions and providing comprehensive administrative support.
+                    </p>
+                </div>
+                <div class="text-center animate-float">
+                    <div class="relative inline-block">
+                        <div class="w-80 h-80 rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl backdrop-blur-sm">
+                            <div class="w-full h-full bg-gradient-to-br from-accent/20 to-accent-light/20 flex items-center justify-center">
+                                <div class="text-center">
+                                    <i class="fas fa-user text-8xl text-white/50 mb-4"></i>
+                                    <p class="text-white/70 font-medium">Professional Photo</p>
+                                </div>
+                            </div>
+                        </div>                        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-2xl flex items-center justify-center shadow-xl">
+                            <i class="fab fa-wordpress text-white text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Story -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">My Professional Journey</h2>
+                <p class="text-gray-600 text-lg">From web development to comprehensive WordPress and virtual assistance solutions</p>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="prose prose-lg mx-auto text-gray-700">
+                    <p class="text-xl leading-relaxed mb-6">
+                        My journey into WordPress development began with a genuine fascination for how websites could transform businesses. What started as simple HTML and CSS exploration quickly evolved into a specialized focus on WordPress development and comprehensive virtual assistance services.
+                    </p>
+                    
+                    <p class="leading-relaxed mb-6">
+                        Over the past 5+ years, I've dedicated myself to mastering PHP, WordPress development, and server management. My expertise spans from creating custom WordPress themes and plugins to managing complex server infrastructures using cPanel, Plesk, and Ubuntu Server environments.
+                    </p>
+                    
+                    <p class="leading-relaxed mb-6">
+                        As a virtual assistant, I've expanded my services to include comprehensive business support - from SEO optimization and technical writing to administrative tasks and project management. This unique combination allows me to offer holistic solutions that address both technical and operational business needs.
+                    </p>
+                    
+                    <p class="leading-relaxed mb-6">
+                        My experience with database management (MySQL/MariaDB), domain setup, and hosting optimization ensures that every WordPress project I deliver is not just functional, but optimized for performance, security, and scalability. I take pride in maintaining 99.9% uptime for client websites.
+                    </p>
+                    
+                    <p class="leading-relaxed">
+                        Today, I focus on delivering reliable WordPress solutions paired with professional virtual assistance. Whether you need a custom WordPress site, server management, or ongoing administrative support, I'm committed to helping your business succeed online.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values & Philosophy -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Values & Philosophy</h2>
+                <p class="text-gray-600 text-lg">The principles that guide my approach to development</p>
+            </div>
+              <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Reliability</h3>
+                    <p class="text-gray-600">
+                        Delivering consistent, dependable WordPress solutions with 99.9% uptime. My clients trust me to keep their websites running smoothly and securely.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-secondary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fab fa-wordpress text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">WordPress Mastery</h3>
+                    <p class="text-gray-600">
+                        Deep expertise in WordPress development, from custom themes and plugins to complex e-commerce solutions using WooCommerce and advanced customizations.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headset text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Comprehensive Support</h3>
+                    <p class="text-gray-600">
+                        Beyond development, I provide complete virtual assistance including SEO optimization, technical writing, and ongoing administrative support.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-server text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Server Excellence</h3>
+                    <p class="text-gray-600">
+                        Expert management of cPanel, Plesk, and Ubuntu Server environments ensuring optimal performance, security, and scalability for all projects.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-purple-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tachometer-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Performance Focus</h3>
+                    <p class="text-gray-600">
+                        Every WordPress site I develop is optimized for speed and SEO, consistently achieving 50%+ performance improvements and enhanced search rankings.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-red-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-handshake text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Client Partnership</h3>
+                    <p class="text-gray-600">
+                        Building long-term relationships through transparent communication, reliable delivery, and ongoing support that helps businesses grow online.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Professional Journey</h2>
+                <p class="text-gray-600 text-lg">Key milestones in my career development</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-primary"></div>
+                
+                <div class="space-y-12">                    <!-- Experience 1 -->
+                    <div class="relative flex items-start">
+                        <div class="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-white shadow"></div>
+                        <div class="ml-16">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <div class="flex flex-wrap items-center justify-between mb-3">
+                                    <h3 class="text-xl font-semibold text-dark">WordPress Developer & Virtual Assistant</h3>
+                                    <span class="text-primary font-medium">2022 - Present</span>
+                                </div>
+                                <p class="text-gray-600 font-medium mb-2">Freelance / Remote Services</p>
+                                <p class="text-gray-700 mb-4">
+                                    Specializing in custom WordPress development, server management, and comprehensive virtual assistance. 
+                                    Managing 50+ WordPress sites with 99.9% uptime while providing SEO optimization and administrative support.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">WordPress</span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">PHP</span>
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">cPanel/Plesk</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Virtual Assistant</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="relative flex items-start">
+                        <div class="absolute left-6 w-4 h-4 bg-secondary rounded-full border-4 border-white shadow"></div>
+                        <div class="ml-16">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <div class="flex flex-wrap items-center justify-between mb-3">
+                                    <h3 class="text-xl font-semibold text-dark">WordPress Developer</h3>
+                                    <span class="text-secondary font-medium">2020 - 2022</span>
+                                </div>
+                                <p class="text-gray-600 font-medium mb-2">Web Development Agency</p>
+                                <p class="text-gray-700 mb-4">
+                                    Developed custom WordPress themes and plugins for diverse clients. Gained expertise in WooCommerce, 
+                                    server management, and performance optimization while building strong client relationships.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">WordPress</span>
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">WooCommerce</span>
+                                    <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">MySQL</span>
+                                    <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">Server Management</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 3 -->
+                    <div class="relative flex items-start">
+                        <div class="absolute left-6 w-4 h-4 bg-accent rounded-full border-4 border-white shadow"></div>
+                        <div class="ml-16">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <div class="flex flex-wrap items-center justify-between mb-3">
+                                    <h3 class="text-xl font-semibold text-dark">Junior PHP Developer</h3>
+                                    <span class="text-accent font-medium">2019 - 2020</span>
+                                </div>
+                                <p class="text-gray-600 font-medium mb-2">Local Web Studio</p>
+                                <p class="text-gray-700 mb-4">
+                                    Started my professional journey learning PHP fundamentals and WordPress development. 
+                                    Built foundation in database management, hosting environments, and client communication.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">PHP</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">WordPress</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">HTML/CSS</span>
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      <!-- Education -->
+                    <div class="relative flex items-start">
+                        <div class="absolute left-6 w-4 h-4 bg-gray-400 rounded-full border-4 border-white shadow"></div>
+                        <div class="ml-16">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <div class="flex flex-wrap items-center justify-between mb-3">
+                                    <h3 class="text-xl font-semibold text-dark">Professional Development & Certifications</h3>
+                                    <span class="text-gray-600 font-medium">2018 - Ongoing</span>
+                                </div>
+                                <p class="text-gray-600 font-medium mb-2">Self-Directed Learning & Industry Courses</p>
+                                <p class="text-gray-700 mb-4">
+                                    Continuously expanding expertise through WordPress development courses, PHP certifications, 
+                                    server management training, and virtual assistant skill development programs.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">WordPress Certified</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">PHP Development</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">Server Management</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm rounded-full">SEO Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Certifications -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Achievements & Certifications</h2>
+                <p class="text-gray-600 text-lg">Recognition and professional development milestones</p>
+            </div>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Achievement 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-500 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-trophy text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">50+ WordPress Sites Delivered</h3>
+                            <p class="text-gray-600 text-sm">Client Projects - 2019-2024</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">
+                        Successfully developed and deployed over 50 WordPress websites maintaining 99.9% uptime and optimal performance.
+                    </p>
+                </div>
+
+                <!-- Certification 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fab fa-wordpress text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">WordPress Developer Certified</h3>
+                            <p class="text-gray-600 text-sm">WordPress Foundation - 2022</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">
+                        Official certification demonstrating expertise in WordPress development, themes, plugins, and best practices.
+                    </p>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-500 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-server text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">Server Management Expert</h3>
+                            <p class="text-gray-600 text-sm">cPanel & Plesk - Ongoing</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">
+                        Advanced expertise in server management, hosting optimization, and maintaining high-performance WordPress environments.
+                    </p>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-500 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-search text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">SEO Optimization Specialist</h3>
+                            <p class="text-gray-600 text-sm">Digital Marketing Institute - 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">
+                        Certified in SEO best practices, achieving consistent 50%+ performance improvements for client websites.
+                    </p>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-500 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-headset text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">100+ Clients Served</h3>
+                            <p class="text-gray-600 text-sm">Virtual Assistant Services</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">
+                        Provided comprehensive virtual assistance to over 100 clients including administrative support, technical writing, and project management.
+                    </p>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-orange-500 text-white w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">PHP Development Certified</h3>
+                            <p class="text-gray-600 text-sm">PHP Certification Board - 2021</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">
+                        Professional certification in PHP development with expertise in MySQL integration and server-side programming.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Interests -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Beyond Code</h2>
+                <p class="text-gray-600 text-lg">When I'm not coding, you'll find me...</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-primary text-white w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-camera text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Photography</h3>
+                        <p class="text-gray-700">
+                            Capturing moments and exploring the world through my lens. I particularly enjoy landscape and street photography, 
+                            which helps me see the world from different perspectives - a skill that translates well to user experience design.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="bg-green-500 text-white w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-hiking text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Hiking & Nature</h3>
+                        <p class="text-gray-700">
+                            Spending time in nature helps me clear my mind and find inspiration. Some of my best ideas come during long hikes, 
+                            and the problem-solving skills needed for navigating trails often apply to debugging code.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="bg-purple-500 text-white w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-book text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Reading</h3>
+                        <p class="text-gray-700">
+                            I'm an avid reader of both technical books and fiction. Staying updated with industry trends through technical literature 
+                            while fiction helps expand my creativity and empathy - essential skills for understanding user needs.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="bg-yellow-500 text-white w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-gamepad text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Gaming</h3>
+                        <p class="text-gray-700">
+                            Gaming has always been a passion that sparked my interest in technology. I enjoy both playing and analyzing games 
+                            from a design perspective, which provides valuable insights into user engagement and interface design.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-dark text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Let's Create Something Amazing</h2>
+            <p class="text-xl mb-8 text-gray-300">
+                I'm always excited to take on new challenges and collaborate with like-minded individuals. 
+                Whether you have a project in mind or just want to connect, I'd love to hear from you.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-accent hover:bg-yellow-500 text-dark px-8 py-3 rounded-lg font-semibold transition-colors">
+                    Get In Touch
+                </a>
+                <a href="projects.html" class="border-2 border-white hover:bg-white hover:text-dark px-8 py-3 rounded-lg font-semibold transition-colors">
+                    View My Work
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2025 Bossjer. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="mailto:your.email@example.com" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

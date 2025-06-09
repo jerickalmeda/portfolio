@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Expertise - Bossjer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        accent: '#06b6d4',
+                        'accent-light': '#67e8f9',
+                        'surface': '#f8fafc',
+                        'surface-dark': '#1e293b',
+                        'text-primary': '#0f172a',
+                        'text-secondary': '#64748b',
+                        'gradient-start': '#0f172a',
+                        'gradient-end': '#334155',
+                    },
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
+        }
+        .gradient-mesh {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #475569 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        .tech-icon:hover {
+            animation: pulseGlow 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body">
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary font-display tracking-tight">
+                        Bossjer<span class="text-accent">.</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Home</a>
+                    <a href="tech-stack.html" class="text-primary font-semibold border-b-2 border-accent pb-1">Expertise</a>
+                    <a href="projects.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Work</a>
+                    <a href="about.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">About</a>
+                    <a href="contact.html" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-secondary transition-colors duration-200 font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Home</a>
+                <a href="tech-stack.html" class="block px-3 py-2 text-primary font-semibold">Expertise</a>
+                <a href="projects.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Work</a>
+                <a href="about.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-16 gradient-mesh text-white min-h-[60vh] flex items-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+            <div class="text-center animate-slide-up">
+                <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-accent-light mb-6">
+                    <div class="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></div>
+                    Technical Expertise
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-bold font-display mb-6 leading-tight">
+                    My Tech
+                    <span class="block text-accent bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">
+                        Arsenal
+                    </span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl mb-6 text-slate-300 font-light max-w-3xl mx-auto">
+                    A comprehensive overview of the cutting-edge technologies, frameworks, and tools I leverage to build exceptional digital experiences.
+                </p>
+            </div>
+        </div>
+    </section>    <!-- Programming Languages -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary font-display mb-6">Core Languages</h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">The fundamental programming languages that power my development process</p>
+            </div>
+              <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group card-hover bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-2xl border border-indigo-200">
+                    <div class="tech-icon bg-gradient-to-br from-indigo-500 to-indigo-700 text-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fab fa-php text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">PHP</h3>
+                    <div class="w-full bg-indigo-200 rounded-full h-3 mb-4 overflow-hidden">
+                        <div class="bg-gradient-to-r from-indigo-500 to-indigo-700 h-3 rounded-full skill-bar" style="width: 95%"></div>
+                    </div>
+                    <p class="text-center text-text-secondary font-medium">Expert • 5+ years</p>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">WordPress</span>
+                        <span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">OOP</span>
+                        <span class="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">MVC</span>
+                    </div>
+                </div>
+
+                <div class="group card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-2xl border border-yellow-200">
+                    <div class="tech-icon bg-gradient-to-br from-yellow-400 to-yellow-600 text-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fab fa-js-square text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">JavaScript</h3>
+                    <div class="w-full bg-yellow-200 rounded-full h-3 mb-4 overflow-hidden">
+                        <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-3 rounded-full skill-bar" style="width: 90%"></div>
+                    </div>
+                    <p class="text-center text-text-secondary font-medium">Expert • 5+ years</p>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">jQuery</span>
+                        <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">ES6+</span>
+                        <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">DOM API</span>
+                    </div>
+                </div>
+
+                <div class="group card-hover bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border border-blue-200">
+                    <div class="tech-icon bg-gradient-to-br from-blue-500 to-blue-700 text-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-database text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">MySQL</h3>
+                    <div class="w-full bg-blue-200 rounded-full h-3 mb-4 overflow-hidden">
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-700 h-3 rounded-full skill-bar" style="width: 85%"></div>
+                    </div>
+                    <p class="text-center text-text-secondary font-medium">Advanced • 4+ years</p>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">MariaDB</span>
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">Optimization</span>
+                        <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">Queries</span>
+                    </div>
+                </div>
+
+                <div class="group card-hover bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border border-green-200">
+                    <div class="tech-icon bg-gradient-to-br from-green-500 to-green-700 text-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fab fa-html5 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-center">HTML/CSS</h3>
+                    <div class="w-full bg-green-200 rounded-full h-3 mb-4 overflow-hidden">
+                        <div class="bg-gradient-to-r from-green-500 to-green-700 h-3 rounded-full skill-bar" style="width: 95%"></div>
+                    </div>
+                    <p class="text-center text-text-secondary font-medium">Expert • 5+ years</p>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">Responsive</span>
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">Flexbox</span>
+                        <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2">Grid</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Frontend Technologies -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary font-display mb-6">WordPress & Frontend</h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">Specialized tools and frameworks for creating exceptional WordPress experiences</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- WordPress -->
+                <div class="group card-hover bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-blue-400 to-blue-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-wordpress text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">WordPress</h3>
+                            <p class="text-text-secondary font-medium">CMS Platform</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Custom theme development, plugin creation, and complex site architecture with advanced customizations and optimization.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Custom Themes</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Plugins</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">WooCommerce</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Multisite</span>
+                    </div>
+                </div>
+
+                <!-- Bootstrap -->
+                <div class="group card-hover bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-purple-400 to-purple-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-bootstrap text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Bootstrap</h3>
+                            <p class="text-text-secondary font-medium">CSS Framework</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Responsive design framework for rapid development with custom components and modern grid systems.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Grid System</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Components</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Responsive</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Sass</span>
+                    </div>
+                </div>
+
+                <!-- Tailwind CSS -->
+                <div class="group card-hover bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-cyan-400 to-cyan-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <span class="text-sm font-bold">TW</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Tailwind CSS</h3>
+                            <p class="text-text-secondary font-medium">Utility Framework</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Utility-first CSS framework for rapid custom design implementation with modern responsive patterns.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Utility Classes</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Custom Design</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">JIT Mode</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Components</span>
+                    </div>
+                </div>
+
+                <!-- jQuery -->
+                <div class="group card-hover bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <span class="text-sm font-bold">jQ</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">jQuery</h3>
+                            <p class="text-text-secondary font-medium">JavaScript Library</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">DOM manipulation, AJAX requests, and interactive features for WordPress themes and plugins.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">DOM</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">AJAX</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Animations</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Plugins</span>
+                    </div>
+                </div>
+
+                <!-- CSS Frameworks -->
+                <div class="group card-hover bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-green-400 to-green-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-css3-alt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">CSS/SCSS</h3>
+                            <p class="text-text-secondary font-medium">Styling</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Advanced CSS and SCSS for custom styling, animations, and responsive design patterns.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Flexbox</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Grid</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Animations</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">SCSS</span>
+                    </div>
+                </div>
+
+                <!-- SEO Tools -->
+                <div class="group card-hover bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-search text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">SEO</h3>
+                            <p class="text-text-secondary font-medium">Optimization</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Search engine optimization, performance analysis, and website optimization for better rankings.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">On-Page</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Analytics</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Keywords</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Performance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">CSS & Styling</h3>
+                            <p class="text-text-secondary font-medium">Design Systems</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Modern CSS frameworks and preprocessors for responsive, beautiful user interfaces.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Sass/SCSS</span>                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Bootstrap</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Styled Components</span>
+                    </div>
+                </div>
+
+                <!-- Build Tools -->
+                <div class="group card-hover bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-tools text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Build Tools</h3>
+                            <p class="text-text-secondary font-medium">Development Workflow</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Modern build tools and bundlers for optimized development and production workflows.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Webpack</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Vite</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Parcel</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">ESBuild</span>
+                    </div>
+                </div>
+
+                <!-- Testing -->
+                <div class="group card-hover bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-purple-400 to-purple-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-vial text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Testing</h3>
+                            <p class="text-text-secondary font-medium">Quality Assurance</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Comprehensive testing strategies for reliable, maintainable applications.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Jest</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Cypress</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Testing Library</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Playwright</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Backend & Infrastructure -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary font-display mb-6">Server & Infrastructure</h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">Server management and hosting technologies for reliable WordPress deployments</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- cPanel -->
+                <div class="group card-hover bg-gradient-to-br from-orange-50 to-orange-50 p-8 rounded-2xl border border-orange-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-orange-500 to-orange-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-server text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">cPanel</h3>
+                            <p class="text-text-secondary font-medium">Web Hosting Control</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Expert in cPanel administration for website management, email setup, database management, and security configurations.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">File Manager</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Email Setup</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Backups</span>
+                        <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">SSL</span>
+                    </div>
+                </div>
+
+                <!-- Plesk -->
+                <div class="group card-hover bg-gradient-to-br from-blue-50 to-sky-50 p-8 rounded-2xl border border-blue-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-cogs text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Plesk</h3>
+                            <p class="text-text-secondary font-medium">Server Management</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Plesk panel administration for advanced server management, domain setup, and automated maintenance tasks.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Domains</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Security</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Monitoring</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Extensions</span>
+                    </div>
+                </div>
+
+                <!-- Ubuntu Server -->
+                <div class="group card-hover bg-gradient-to-br from-purple-50 to-purple-50 p-8 rounded-2xl border border-purple-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-purple-500 to-purple-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-ubuntu text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Ubuntu Server</h3>
+                            <p class="text-text-secondary font-medium">Linux Administration</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Command-line server administration, package management, security hardening, and performance optimization.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">CLI</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">SSH</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">LAMP Stack</span>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Security</span>
+                    </div>
+                </div>
+
+                <!-- Database Management -->
+                <div class="group card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border border-green-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-green-500 to-green-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-database text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">MySQL/MariaDB</h3>
+                            <p class="text-text-secondary font-medium">Database Systems</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Database optimization, backup strategies, performance tuning, and advanced query optimization.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Performance</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Backups</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">phpMyAdmin</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Optimization</span>
+                    </div>
+                </div>
+
+                <!-- Domain Management -->
+                <div class="group card-hover bg-gradient-to-br from-cyan-50 to-cyan-50 p-8 rounded-2xl border border-cyan-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-cyan-500 to-cyan-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-globe text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Domain Setup</h3>
+                            <p class="text-text-secondary font-medium">DNS & Hosting</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Domain registration, DNS configuration, subdomain setup, and hosting migration services.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">DNS</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Subdomains</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">Migration</span>
+                        <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">SSL Setup</span>
+                    </div>
+                </div>
+
+                <!-- Virtual Assistant Tools -->
+                <div class="group card-hover bg-gradient-to-br from-pink-50 to-pink-50 p-8 rounded-2xl border border-pink-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-pink-500 to-pink-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-headset text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Admin Tools</h3>
+                            <p class="text-text-secondary font-medium">Virtual Assistant</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">Business administration, technical writing, project management, and comprehensive virtual assistance services.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-pink-100 text-pink-800 text-sm font-medium rounded-full">Writing</span>
+                        <span class="px-3 py-1 bg-pink-100 text-pink-800 text-sm font-medium rounded-full">Admin</span>
+                        <span class="px-3 py-1 bg-pink-100 text-pink-800 text-sm font-medium rounded-full">Project Mgmt</span>
+                        <span class="px-3 py-1 bg-pink-100 text-pink-800 text-sm font-medium rounded-full">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">AWS</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Google Cloud</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Vercel</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Netlify</span>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="group card-hover bg-gradient-to-br from-slate-50 to-gray-50 p-8 rounded-2xl border border-slate-200">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-slate-500 to-slate-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-database text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-primary">Databases</h3>
+                            <p class="text-text-secondary font-medium">Data Management</p>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-6 leading-relaxed">SQL and NoSQL databases optimized for performance, scalability, and reliability.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-800 text-sm font-medium rounded-full">PostgreSQL</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-800 text-sm font-medium rounded-full">MongoDB</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-800 text-sm font-medium rounded-full">Redis</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-800 text-sm font-medium rounded-full">Supabase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="text-3xl font-bold font-display tracking-tight mb-4 inline-block">
+                        Bossjer<span class="text-accent">.</span>
+                    </a>
+                    <p class="text-slate-300 mb-6 max-w-md">
+                        Digital architect crafting exceptional web experiences with cutting-edge technologies and strategic thinking.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-slate-300 hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="projects.html" class="text-slate-300 hover:text-accent transition-colors">Work</a></li>
+                        <li><a href="about.html" class="text-slate-300 hover:text-accent transition-colors">About</a></li>
+                        <li><a href="contact.html" class="text-slate-300 hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Expertise</h3>
+                    <ul class="space-y-2">
+                        <li><span class="text-slate-300">Frontend Development</span></li>
+                        <li><span class="text-slate-300">Backend Architecture</span></li>
+                        <li><span class="text-slate-300">Cloud Solutions</span></li>
+                        <li><span class="text-slate-300">Performance Optimization</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-700 pt-8 text-center">
+                <p class="text-slate-400">
+                    © 2025 Bossjer. Crafted with precision and attention to detail.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.getAttribute('style').split('width: ')[1];
+                    }
+                });
+            });
+
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+        };
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', animateSkillBars);
+    </script>
+</body>
+</html>
+</html>
