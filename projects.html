@@ -3,45 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Bossjer Portfolio</title>
+    <title>PHP & WordPress Projects - Jerick Carlo Almeda Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#3B82F6',
-                        secondary: '#1E40AF',
-                        accent: '#F59E0B',
-                        dark: '#1F2937'
+                        primary: '#0f172a',
+                        secondary: '#334155',
+                        accent: '#06b6d4',
+                        'accent-light': '#67e8f9',
+                        'surface': '#f8fafc',
+                        'surface-dark': '#1e293b',
+                        'text-primary': '#0f172a',
+                        'text-secondary': '#64748b',
+                        'gradient-start': '#0f172a',
+                        'gradient-end': '#334155',
+                    },
+                    fontFamily: {
+                        'display': ['Inter', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
                     }
                 }
             }
         }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
+        }
+        .gradient-mesh {
+            background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #475569 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.4);
+        }
+        .project-card {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+        .project-card.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-50">
+<body class="bg-surface font-body">    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="index.html" class="text-2xl font-bold text-primary">Bossjer</a>
+            <div class="flex justify-between h-16">                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary font-display tracking-tight">
+                        Jerick Carlo Almeda<span class="text-accent">.</span>
+                    </a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Home</a>
-                    <a href="tech-stack.html" class="text-gray-700 hover:text-primary transition-colors">Tech Stack</a>
-                    <a href="projects.html" class="text-primary font-semibold">Projects</a>
-                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors">About</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                    <a href="index.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Home</a>
+                    <a href="tech-stack.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">Expertise</a>
+                    <a href="projects.html" class="text-primary font-semibold border-b-2 border-accent pb-1">Work</a>
+                    <a href="about.html" class="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">About</a>
+                    <a href="contact.html" class="bg-primary text-white px-5 py-2 rounded-full hover:bg-secondary transition-colors duration-200 font-medium">Contact</a>
                 </div>
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary transition-colors">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -49,124 +122,186 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Home</a>
-                <a href="tech-stack.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Tech Stack</a>
-                <a href="projects.html" class="block px-3 py-2 text-primary font-semibold">Projects</a>
-                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-primary">About</a>
-                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:text-primary">Contact</a>
+                <a href="index.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Home</a>
+                <a href="tech-stack.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Expertise</a>
+                <a href="projects.html" class="block px-3 py-2 text-primary font-semibold">Work</a>
+                <a href="about.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-text-secondary hover:text-primary font-medium">Contact</a>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="pt-16 bg-gradient-to-br from-primary to-secondary text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">My Projects</h1>
-                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
-                    A showcase of my WordPress development expertise, featuring custom e-commerce solutions, corporate platforms, and comprehensive maintenance services.
+    </nav>    <!-- Hero Section -->
+    <section class="pt-16 gradient-mesh text-white min-h-[60vh] flex items-center relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">            <div class="text-center animate-slide-up">
+                <div class="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-accent-light mb-6">
+                    <div class="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></div>
+                    PHP & WordPress Portfolio
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-bold font-display mb-6 leading-tight">
+                    Custom
+                    <span class="block text-accent bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent">
+                        Solutions
+                    </span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl mb-6 text-slate-300 font-light max-w-3xl mx-auto">
+                    Discover my expertise in custom PHP web applications, WordPress solutions, and scalable system development.
                 </p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mt-8">
+                    <div class="flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                        <i class="fab fa-php text-accent mr-2"></i>
+                        <span class="text-sm font-medium">Custom PHP Systems</span>
+                    </div>
+                    <div class="flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                        <i class="fab fa-wordpress text-accent mr-2"></i>
+                        <span class="text-sm font-medium">WordPress Solutions</span>
+                    </div>
+                    <div class="flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                        <i class="fas fa-code text-accent mr-2"></i>
+                        <span class="text-sm font-medium">Web Applications</span>
+                    </div>
+                    <div class="flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                        <i class="fas fa-server text-accent mr-2"></i>
+                        <span class="text-sm font-medium">Server Management</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Filter Section -->
-    <section class="py-8 bg-white border-b">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">            <div class="flex flex-wrap justify-center gap-4">
-                <button class="filter-btn active px-6 py-2 bg-primary text-white rounded-full font-medium transition-colors" data-filter="all">
-                    All Projects
+    </section>    <!-- Filter Section -->
+    <section class="py-12 bg-white/80 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-primary font-display mb-2">Project Categories</h2>
+                <p class="text-text-secondary">Filter projects by specialization</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active px-6 py-3 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300" data-filter="all">
+                    <i class="fas fa-th-large mr-2"></i>All Projects
+                </button>                <button class="filter-btn px-6 py-3 bg-slate-100 text-text-primary hover:bg-slate-200 rounded-full font-medium transition-all duration-300 hover:shadow-lg" data-filter="php">
+                    <i class="fab fa-php mr-2"></i>PHP Systems
                 </button>
-                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-medium transition-colors" data-filter="wordpress">
-                    WordPress
+                <button class="filter-btn px-6 py-3 bg-slate-100 text-text-primary hover:bg-slate-200 rounded-full font-medium transition-all duration-300 hover:shadow-lg" data-filter="wordpress">
+                    <i class="fab fa-wordpress mr-2"></i>WordPress
                 </button>
-                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-medium transition-colors" data-filter="ecommerce">
-                    E-Commerce
+                <button class="filter-btn px-6 py-3 bg-slate-100 text-text-primary hover:bg-slate-200 rounded-full font-medium transition-all duration-300 hover:shadow-lg" data-filter="ecommerce">
+                    <i class="fas fa-shopping-cart mr-2"></i>E-Commerce
                 </button>
-                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-medium transition-colors" data-filter="custom">
-                    Custom Solutions
+                <button class="filter-btn px-6 py-3 bg-slate-100 text-text-primary hover:bg-slate-200 rounded-full font-medium transition-all duration-300 hover:shadow-lg" data-filter="custom">
+                    <i class="fas fa-code mr-2"></i>Web Apps
                 </button>
-                <button class="filter-btn px-6 py-2 bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-full font-medium transition-colors" data-filter="maintenance">
-                    Maintenance
+                <button class="filter-btn px-6 py-3 bg-slate-100 text-text-primary hover:bg-slate-200 rounded-full font-medium transition-all duration-300 hover:shadow-lg" data-filter="maintenance">
+                    <i class="fas fa-tools mr-2"></i>Maintenance
                 </button>
             </div>
         </div>
     </section>    <!-- Projects Grid -->
-    <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary font-display mb-6">Development Portfolio</h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">Showcasing custom PHP systems, WordPress solutions, and web applications across various industries</p>
+            </div>
+            
             <div class="grid md:grid-cols-2 gap-8" id="projects-grid">
-                  <!-- WordPress E-Commerce Store -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress ecommerce">
+                <!-- WordPress E-Commerce Store -->
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="wordpress ecommerce">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/600x300/3B82F6/FFFFFF?text=WordPress+E-Commerce+Store" alt="WordPress E-Commerce Store" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://via.placeholder.com/600x300/06b6d4/FFFFFF?text=WordPress+E-Commerce+Store" alt="WordPress E-Commerce Store" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
-                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="wpecommerce">
-                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="wpecommerce">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-dark">Premium WordPress E-Commerce Store</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            A fully customized WooCommerce-powered online store with advanced product management, secure payment processing, inventory tracking, and optimized performance. Features custom PHP development and seamless third-party integrations.
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-blue-400 to-blue-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-shopping-cart text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">Premium E-Commerce Store</h3>
+                                <p class="text-text-secondary font-medium">WooCommerce Development</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
+                            Fully customized WooCommerce-powered online store with advanced product management, secure payment processing, inventory tracking, and optimized performance with custom PHP development.
                         </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-dark mb-2">Key Features:</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Custom WooCommerce theme development</li>
-                                <li>• Advanced product filtering & search</li>
-                                <li>• Multi-payment gateway integration</li>
-                                <li>• Automated inventory management</li>
-                                <li>• SEO optimization & performance tuning</li>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Features
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Custom WooCommerce theme development</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Advanced product filtering & search</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Multi-payment gateway integration</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automated inventory management</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>SEO optimization & performance tuning</li>
                             </ul>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">WordPress</span>
                             <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">WooCommerce</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP 8.0+</span>
                             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">cPanel</span>
                         </div>
                         <div class="flex gap-4">
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
                                 <i class="fas fa-external-link-alt mr-2"></i>Live Demo
                             </a>
-                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
                                 <i class="fas fa-code mr-2"></i>Case Study
                             </a>
                         </div>
                     </div>
                 </div>                <!-- Corporate WordPress Platform -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress custom">
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="wordpress custom">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/600x300/1E40AF/FFFFFF?text=Corporate+WordPress+Platform" alt="Corporate WordPress Platform" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://via.placeholder.com/600x300/1E40AF/FFFFFF?text=Corporate+WordPress+Platform" alt="Corporate WordPress Platform" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
-                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="corporate">
-                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="corporate">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-dark">Corporate WordPress Platform</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-indigo-400 to-indigo-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-building text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">Corporate WordPress Platform</h3>
+                                <p class="text-text-secondary font-medium">Enterprise Multi-site Solution</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             A sophisticated multi-site WordPress platform for a corporate client featuring custom post types, advanced user roles, automated content workflows, and seamless third-party integrations. Built for scalability and enterprise-level performance.
                         </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-dark mb-2">Key Features:</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Multi-site WordPress network setup</li>
-                                <li>• Custom post types & field management</li>
-                                <li>• Advanced user role & permission system</li>
-                                <li>• API integrations & automated workflows</li>
-                                <li>• Performance optimization & caching</li>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Features
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Multi-site WordPress network setup</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Custom post types & field management</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Advanced user role & permission system</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>API integrations & automated workflows</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Performance optimization & caching</li>
                             </ul>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -177,41 +312,51 @@
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Ubuntu Server</span>
                         </div>
                         <div class="flex gap-4">
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
                                 <i class="fas fa-external-link-alt mr-2"></i>Live Demo
                             </a>
-                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
                                 <i class="fas fa-code mr-2"></i>Case Study
                             </a>
                         </div>
                     </div>
                 </div>                <!-- Custom WordPress Plugin Development -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress custom">
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="wordpress custom">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/600x300/F59E0B/FFFFFF?text=Custom+WordPress+Plugin" alt="Custom WordPress Plugin" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://via.placeholder.com/600x300/F59E0B/FFFFFF?text=Custom+WordPress+Plugin" alt="Custom WordPress Plugin" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
-                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="plugin">
-                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="plugin">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-dark">Custom WordPress Plugin Development</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-amber-400 to-amber-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-puzzle-piece text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">Custom WordPress Plugin Development</h3>
+                                <p class="text-text-secondary font-medium">Bespoke Plugin Solutions</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             Bespoke WordPress plugin development including advanced booking systems, membership management, custom post types, API integrations, and specialized business logic. Built with security and performance optimization as top priorities.
                         </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-dark mb-2">Key Features:</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Custom booking & reservation system</li>
-                                <li>• Advanced user role management</li>
-                                <li>• Third-party API integrations (CRM, Payment)</li>
-                                <li>• Custom dashboard & analytics</li>
-                                <li>• Mobile-responsive admin interface</li>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Features
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Custom booking & reservation system</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Advanced user role management</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Third-party API integrations (CRM, Payment)</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Custom dashboard & analytics</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Mobile-responsive admin interface</li>
                             </ul>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -222,41 +367,51 @@
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">jQuery</span>
                         </div>
                         <div class="flex gap-4">
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
                                 <i class="fas fa-cog mr-2"></i>Plugin Demo
                             </a>
-                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
                                 <i class="fas fa-code mr-2"></i>Case Study
                             </a>
                         </div>
                     </div>
-                </div><!-- WordPress Website Maintenance & Security -->
-<div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="maintenance wordpress">
+                </div>                <!-- WordPress Website Maintenance & Security -->
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="maintenance wordpress">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/600x300/10B981/FFFFFF?text=WordPress+Maintenance+%26+Security" alt="WordPress Maintenance & Security" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://via.placeholder.com/600x300/10B981/FFFFFF?text=WordPress+Maintenance+%26+Security" alt="WordPress Maintenance & Security" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
-                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="maintenance">
-                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="maintenance">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-dark">WordPress Maintenance & Security Service</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-emerald-400 to-emerald-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-shield-alt text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">WordPress Maintenance & Security Service</h3>
+                                <p class="text-text-secondary font-medium">24/7 Website Protection</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             Comprehensive WordPress maintenance service including regular updates, security monitoring, backup management, performance optimization, and 24/7 uptime monitoring. Serving 50+ WordPress sites with 99.9% uptime guarantee.
                         </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-dark mb-2">Key Services:</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Weekly WordPress core & plugin updates</li>
-                                <li>• Advanced security monitoring & malware removal</li>
-                                <li>• Automated daily backups to cloud storage</li>
-                                <li>• Performance optimization & speed improvements</li>
-                                <li>• 24/7 uptime monitoring & instant alerts</li>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Services
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Weekly WordPress core & plugin updates</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Advanced security monitoring & malware removal</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automated daily backups to cloud storage</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Performance optimization & speed improvements</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>24/7 uptime monitoring & instant alerts</li>
                             </ul>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -267,41 +422,51 @@
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Monitoring</span>
                         </div>
                         <div class="flex gap-4">
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
                                 <i class="fas fa-chart-line mr-2"></i>Service Details
                             </a>
-                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
                                 <i class="fas fa-headset mr-2"></i>Contact VA
                             </a>
                         </div>
                     </div>
                 </div>                <!-- WordPress Migration & Optimization Service -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress custom">
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="wordpress custom">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/600x300/8B5CF6/FFFFFF?text=WordPress+Migration+%26+Optimization" alt="WordPress Migration & Optimization" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://via.placeholder.com/600x300/8B5CF6/FFFFFF?text=WordPress+Migration+%26+Optimization" alt="WordPress Migration & Optimization" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
-                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="migration">
-                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="migration">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-dark">WordPress Migration & Optimization Service</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-violet-400 to-violet-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-rocket text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">WordPress Migration & Optimization Service</h3>
+                                <p class="text-text-secondary font-medium">Zero-Downtime Migrations</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             Comprehensive WordPress migration and optimization service featuring seamless hosting transfers, performance improvements, security hardening, and database optimization. Specialized in complex migrations with zero downtime guarantee.
                         </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-dark mb-2">Key Services:</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Zero-downtime hosting migrations</li>
-                                <li>• Database optimization & cleanup</li>
-                                <li>• Performance tuning (50%+ speed improvement)</li>
-                                <li>• Security hardening & SSL implementation</li>
-                                <li>• SEO preservation & enhancement</li>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Services
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Zero-downtime hosting migrations</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Database optimization & cleanup</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Performance tuning (50%+ speed improvement)</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Security hardening & SSL implementation</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>SEO preservation & enhancement</li>
                             </ul>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -312,41 +477,51 @@
                             <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Performance</span>
                         </div>
                         <div class="flex gap-4">
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
                                 <i class="fas fa-rocket mr-2"></i>Migration Guide
                             </a>
-                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
                                 <i class="fas fa-headset mr-2"></i>Get Quote
                             </a>
                         </div>
                     </div>
                 </div>                <!-- WordPress SEO & Virtual Assistant Services -->
-                <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300" data-category="wordpress maintenance">
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="wordpress maintenance">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/600x300/F97316/FFFFFF?text=WordPress+SEO+%26+VA+Services" alt="WordPress SEO & VA Services" class="w-full h-64 object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://via.placeholder.com/600x300/F97316/FFFFFF?text=WordPress+SEO+%26+VA+Services" alt="WordPress SEO & VA Services" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
-                                    <button class="gallery-btn bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm hover:bg-white/30 transition-colors" data-project="seo-va">
-                                        <i class="fas fa-images mr-1"></i> Gallery
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="seo-va">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-3 text-dark">WordPress SEO & Virtual Assistant Services</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">WordPress SEO & Virtual Assistant Services</h3>
+                                <p class="text-text-secondary font-medium">SEO Optimization & VA Support</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             Comprehensive SEO optimization and virtual assistant services for WordPress websites. Features include technical SEO audits, content optimization, administrative support, and ongoing maintenance for 100+ clients.
                         </p>
-                        <div class="mb-4">
-                            <h4 class="font-semibold text-dark mb-2">Key Services:</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>• Technical SEO audits & implementation</li>
-                                <li>• Content optimization & keyword research</li>
-                                <li>• Administrative support & documentation</li>
-                                <li>• Social media management & scheduling</li>
-                                <li>• Email marketing & client communication</li>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Services
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Technical SEO audits & implementation</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Content optimization & keyword research</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Administrative support & documentation</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Social media management & scheduling</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Email marketing & client communication</li>
                             </ul>
                         </div>
                         <div class="flex flex-wrap gap-2 mb-6">
@@ -357,11 +532,123 @@
                             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">Analytics</span>
                         </div>
                         <div class="flex gap-4">
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
                                 <i class="fas fa-chart-line mr-2"></i>SEO Reports
                             </a>
-                            <a href="#" class="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
                                 <i class="fas fa-headset mr-2"></i>VA Services
+                            </a>
+                        </div>
+                    </div>
+                </div>                <!-- Custom CRM & Project Management System -->
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x300/6366F1/FFFFFF?text=Custom+PHP+CRM+System" alt="Custom PHP CRM System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="crm">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-indigo-400 to-indigo-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">Custom CRM & Project Management</h3>
+                                <p class="text-text-secondary font-medium">Vanilla PHP MVC Application</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
+                            Full-featured CRM system built from scratch using vanilla PHP with custom MVC framework. Includes client management, project tracking, invoicing, time tracking, and comprehensive reporting dashboard.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Features
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Custom MVC architecture from scratch</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Advanced user role & permission system</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>RESTful API with JWT authentication</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Real-time notifications & dashboard</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>PDF generation & email automation</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full font-medium">PHP 8+</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Custom MVC</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">MySQL</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">REST API</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">AJAX</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
+                                <i class="fas fa-code mr-2"></i>Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inventory Management System -->
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/600x300/7C3AED/FFFFFF?text=PHP+Inventory+System" alt="PHP Inventory Management System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="inventory">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-purple-400 to-purple-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-boxes text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">Inventory Management System</h3>
+                                <p class="text-text-secondary font-medium">Enterprise PHP Solution</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
+                            Comprehensive inventory management system built with vanilla PHP using lightweight frameworks. Features multi-warehouse support, barcode scanning, automated reordering, and advanced analytics.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Features
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Multi-warehouse inventory tracking</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Barcode generation & scanning integration</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automated stock alerts & reordering</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Real-time analytics & reporting</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Supplier management & purchase orders</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP 8+</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">MySQL</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">JavaScript</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">Chart.js</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">PDF Reports</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
+                                <i class="fas fa-code mr-2"></i>Case Study
                             </a>
                         </div>
                     </div>
@@ -397,32 +684,59 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
+    </div>    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <p>&copy; 2025 Bossjer. All rights reserved.</p>
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->                <div class="md:col-span-2">
+                    <a href="index.html" class="text-3xl font-bold font-display text-white mb-4 block">
+                        Jerick Carlo Almeda<span class="text-accent">.</span>
+                    </a>                    <p class="text-slate-400 mb-6 max-w-md leading-relaxed">
+                        Expert PHP developer specializing in custom web applications, WordPress solutions, and scalable system development. Delivering innovative digital solutions for growing businesses worldwide.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/jerickalmeda" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-slate-800 hover:bg-accent rounded-lg flex items-center justify-center transition-colors group">
+                            <i class="fab fa-github text-slate-400 group-hover:text-white transition-colors"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-twitter text-xl"></i>
-                    </a>
-                    <a href="mailto:your.email@example.com" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fas fa-envelope text-xl"></i>
-                    </a>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-slate-400 hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-accent transition-colors">About</a></li>
+                        <li><a href="tech-stack.html" class="text-slate-400 hover:text-accent transition-colors">Expertise</a></li>
+                        <li><a href="projects.html" class="text-slate-400 hover:text-accent transition-colors">Projects</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                  <!-- Services -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><span class="text-slate-400">Custom PHP Systems</span></li>
+                        <li><span class="text-slate-400">WordPress Development</span></li>
+                        <li><span class="text-slate-400">Database Design</span></li>
+                        <li><span class="text-slate-400">API Development</span></li>
+                        <li><span class="text-slate-400">Server Management</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8">                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p class="text-slate-400">&copy; 2025 Jerick Carlo Almeda. All rights reserved. Built with precision and passion.</p>
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-slate-400 hover:text-accent transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-slate-400 hover:text-accent transition-colors">Terms of Service</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>    <script>        // Project galleries data
+    </footer><script>        // Project galleries data
         const projectGalleries = {
             wpecommerce: {
                 title: 'WordPress E-Commerce Store Gallery',
@@ -484,7 +798,27 @@
                     { src: 'https://via.placeholder.com/800x600/8B5CF6/FFFFFF?text=VA+Services', alt: 'Virtual assistant service portfolio' },
                     { src: 'https://via.placeholder.com/800x600/EF4444/FFFFFF?text=Client+Communication', alt: 'Client communication and reporting' }
                 ]
-            }
+            },
+            crm: {
+                title: 'Custom CRM & Project Management Gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/800x600/6366F1/FFFFFF?text=CRM+Dashboard', alt: 'Main CRM dashboard with analytics' },
+                    { src: 'https://via.placeholder.com/800x600/8B5CF6/FFFFFF?text=Client+Management', alt: 'Client management interface' },
+                    { src: 'https://via.placeholder.com/800x600/3B82F6/FFFFFF?text=Project+Tracking', alt: 'Project tracking and timeline view' },
+                    { src: 'https://via.placeholder.com/800x600/10B981/FFFFFF?text=Invoicing+System', alt: 'Invoice generation and management' },
+                    { src: 'https://via.placeholder.com/800x600/F59E0B/FFFFFF?text=Reports+Analytics', alt: 'Advanced reporting and analytics' }
+                ]
+            },
+            inventory: {
+                title: 'Inventory Management System Gallery',
+                images: [
+                    { src: 'https://via.placeholder.com/800x600/7C3AED/FFFFFF?text=Inventory+Dashboard', alt: 'Real-time inventory dashboard' },
+                    { src: 'https://via.placeholder.com/800x600/3B82F6/FFFFFF?text=Stock+Management', alt: 'Stock level management interface' },
+                    { src: 'https://via.placeholder.com/800x600/10B981/FFFFFF?text=Warehouse+View', alt: 'Multi-warehouse management view' },
+                    { src: 'https://via.placeholder.com/800x600/F59E0B/FFFFFF?text=Barcode+Scanner', alt: 'Barcode scanning integration' },
+                    { src: 'https://via.placeholder.com/800x600/EF4444/FFFFFF?text=Analytics+Reports', alt: 'Inventory analytics and reports' }
+                ]
+            },
         };
 
         // Mobile menu functionality
@@ -513,8 +847,9 @@
                 projectCards.forEach(card => {
                     const category = card.getAttribute('data-category');
                     let shouldShow = false;
-                    
-                    if (filter === 'all') {
+                      if (filter === 'all') {
+                        shouldShow = true;
+                    } else if (filter === 'php' && category.includes('php')) {
                         shouldShow = true;
                     } else if (filter === 'wordpress' && category.includes('wordpress')) {
                         shouldShow = true;
