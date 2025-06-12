@@ -81,16 +81,54 @@
         .filter-btn.active {
             background: linear-gradient(135deg, #06b6d4, #0891b2);
             box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.4);
-        }
-        .project-card {
+        }        .project-card {
             opacity: 1;
             transform: scale(1);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         .project-card.hidden {
             opacity: 0;
             transform: scale(0.8);
             pointer-events: none;
+        }
+        
+        /* Force equal heights for all grid items */
+        #projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+        
+        @media (min-width: 768px) {
+            #projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Ensure card content fills available space */
+        .project-card .card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+        
+        .project-card .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card .card-description {
+            flex: 1;
+        }
+        
+        .project-card .card-actions {
+            margin-top: auto;
         }
     </style>
 </head>
@@ -208,10 +246,10 @@
                 <h2 class="text-4xl md:text-5xl font-bold text-primary font-display mb-6">Development Portfolio</h2>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">Showcasing custom PHP systems, WordPress solutions, and web applications across various industries</p>
             </div>
-              <div class="grid md:grid-cols-2 gap-8" id="projects-grid">                <!-- Teacher Evaluation System -->
+              <div id="projects-grid" class="grid lg:grid-cols-2 gap-8">                  <!-- Teacher Evaluation System -->
                 <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
                     <div class="relative">
-                        <img src="Web Development Portfolio/3.png" alt="Teacher Evaluation System for a Senior High School" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="project-images/teacher-evaluation-system/2fa66eaa-4e4a-498f-97f3-18b1781efa23.png" alt="Teacher Evaluation System for a Senior High School" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
@@ -231,9 +269,11 @@
                                 <h3 class="text-2xl font-bold text-primary font-display">Teacher Evaluation System for a Senior High School</h3>
                                 <p class="text-text-secondary font-medium">Educational Performance Management</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             A functional system that enables students to evaluate the teaching performance of their teachers each semester. Administrators can configure questionnaires, assign subjects taught by teachers, manage sectioning, and set adviser ratings. Ratings and comments are generated in real-time with comprehensive reporting capabilities.
-                        </p>                        <div class="mb-6">
+                        </p>
+                        <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
                                 <i class="fas fa-star text-accent mr-2"></i>Key Features
                             </h4>
@@ -264,7 +304,7 @@
                 </div>                <!-- Graduation Attendance System -->
                 <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
                     <div class="relative">
-                        <img src="Web Development Portfolio/4.png" alt="Graduation Attendance System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="project-images/graduation-attendance-system/4092cb26-f7ec-4330-ae96-468d51161378.png" alt="Graduation Attendance System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
@@ -284,12 +324,15 @@
                                 <h3 class="text-2xl font-bold text-primary font-display">Graduation Attendance System</h3>
                                 <p class="text-text-secondary font-medium">QR Code-Based Event Tracking</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             A secure platform that manages attendance for graduation ceremonies using unique, single-use QR codes. Administrators can view statistics, set deadlines, reset QR codes, and support bulk uploading. Features real-time attendance confirmation tracking with 1108/1261 graduate verification system.
-                        </p>                        <div class="mb-6">
+                        </p>
+                        <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
                                 <i class="fas fa-star text-accent mr-2"></i>Key Features
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Unique QR code generation for each graduate</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Real-time attendance confirmation tracking</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Administrative dashboard with live statistics</li>
@@ -316,7 +359,7 @@
                 </div>                <!-- ICT Brigada Registration App -->
                 <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
                     <div class="relative">
-                        <img src="Web Development Portfolio/5.png" alt="ICT Brigada Registration App" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="project-images/ici-brigada-registration-app/3b9106bb-9c68-407c-8fd3-d143cb3a91a8.png" alt="ICT Brigada Registration App" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
@@ -336,13 +379,15 @@
                                 <h3 class="text-2xl font-bold text-primary font-display">ICT Brigada Registration App</h3>
                                 <p class="text-text-secondary font-medium">Student Enrollment Platform</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             A web app that simplifies the application process for students by providing an easy online platform. Teachers can enroll students into the system while administrators process documents and track the status and location of academic requirements. Once students register, they are officially enrolled with comprehensive document management.
                         </p>
                         <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
                                 <i class="fas fa-star text-accent mr-2"></i>Key Features
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Online student registration platform</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Document processing and tracking system</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Academic requirements status monitoring</li>
@@ -369,7 +414,7 @@
                 </div>                <!-- Tongs Restaurant Ordering App -->
                 <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php ecommerce">
                     <div class="relative">
-                        <img src="Web Development Portfolio/7.png" alt="Tongs Restaurant Ordering App" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="project-images/tongs-ordering-system/0fae34c9-6fb7-4f51-96f7-a880850a5e73.png" alt="Tongs Restaurant Ordering App" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
@@ -389,13 +434,15 @@
                                 <h3 class="text-2xl font-bold text-primary font-display">Tongs Restaurant Ordering App</h3>
                                 <p class="text-text-secondary font-medium">Digital Food Service Platform</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             A web app that replaces traditional paper-and-pen transactions for ordering, providing a more efficient digital solution. Waiters use tablets to access the platform and place orders. Once confirmed, receipts are automatically printed for kitchen staff, and transactions are recorded in the inventory management system—streamlining operations and improving efficiency.
                         </p>
                         <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
                                 <i class="fas fa-star text-accent mr-2"></i>Key Features
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Tablet-based ordering system for waiters</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automatic receipt printing for kitchen staff</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Integrated inventory management system</li>
@@ -421,10 +468,10 @@
                     </div>
                 </div>
 
-                <!-- WordPress E-Learning Platform -->
+                <!-- Course Management & E-Learning Platform -->
                 <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="wordpress custom">
                     <div class="relative">
-                        <img src="Web Development Portfolio/11.png" alt="WordPress E-Learning Platform" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="Web Development Portfolio/11.png" alt="Course Management & E-Learning Platform" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
@@ -440,16 +487,19 @@
                             <div class="bg-gradient-to-br from-violet-400 to-violet-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-graduation-cap text-lg"></i>
                             </div>
-                            <div>                                <h3 class="text-2xl font-bold text-primary font-display">Course Management & E-Learning Platform</h3>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">Course Management & E-Learning Platform</h3>
                                 <p class="text-text-secondary font-medium">Educational Content Management System</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             A comprehensive course management platform featuring structured lesson organization, interactive content delivery, student progress tracking, and educational resource management. The system provides tools for creating courses, managing educational materials, and tracking student engagement with detailed analytics.
                         </p>
                         <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
                                 <i class="fas fa-star text-accent mr-2"></i>Key Features
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Structured course content organization</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Interactive lesson delivery system</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Student progress tracking and analytics</li>
@@ -475,13 +525,14 @@
                     </div>
                 </div>
 
-                <!-- Custom Web Application -->
+                <!-- Business Analytics & Reporting Dashboard -->
                 <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php maintenance">
                     <div class="relative">
-                        <img src="Web Development Portfolio/12.png" alt="Custom Web Application" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="Web Development Portfolio/12.png" alt="Business Analytics & Reporting Dashboard" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
-                                <div class="flex gap-2">                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="business-analytics">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="business-analytics">
                                         <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
@@ -493,30 +544,35 @@
                             <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-laptop-code text-lg"></i>
                             </div>
-                            <div>                                <h3 class="text-2xl font-bold text-primary font-display">Business Analytics & Reporting Dashboard</h3>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">Business Analytics & Reporting Dashboard</h3>
                                 <p class="text-text-secondary font-medium">Comprehensive Statistics Platform</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             A powerful business analytics dashboard providing comprehensive reporting and data visualization capabilities. Features real-time statistics, performance metrics tracking, customizable widgets, and detailed insights across multiple business areas with exportable reports and trend analysis.
                         </p>
                         <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
                                 <i class="fas fa-star text-accent mr-2"></i>Key Features
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Real-time business statistics and KPIs</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Customizable dashboard widgets and layouts</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Performance metrics tracking and analysis</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Advanced reporting with export capabilities</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Trend analysis and forecasting tools</li>
                             </ul>
-                        </div>                        <div class="flex flex-wrap gap-2 mb-6">
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP 8.2</span>
                             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">Chart.js</span>
                             <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">JavaScript</span>
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Business Intelligence</span>
                         </div>
-                        <div class="flex gap-4">                            <button class="gallery-btn flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl" data-project="business-analytics">
+                        <div class="flex gap-4">
+                            <button class="gallery-btn flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl" data-project="business-analytics">
                                 <i class="fas fa-images mr-2"></i>View Screenshots
                             </button>
                             <button class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
@@ -525,44 +581,15 @@
                         </div>
                     </div>
                 </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
-                            Advanced WordPress plugin development featuring custom booking systems, automated scheduling, payment processing integration, and dynamic pricing models. Includes comprehensive admin dashboards, mobile-responsive interfaces, and third-party API integrations for enhanced functionality.
-                        </p>
-                        <div class="mb-6">
-                            <h4 class="font-semibold text-primary mb-3 flex items-center">
-                                <i class="fas fa-star text-accent mr-2"></i>Key Features
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Advanced booking & scheduling system</li>
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Dynamic pricing & availability management</li>
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Payment gateway integrations (Stripe, PayPal)</li>
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automated email notifications & reminders</li>
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Mobile-responsive admin interface</li>
-                            </ul>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">WordPress</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">PHP</span>
-                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">REST API</span>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">jQuery</span>
-                        </div>
-                        <div class="flex gap-4">
-                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
-                                <i class="fas fa-cog mr-2"></i>Plugin Demo
-                            </a>
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
-                                <i class="fas fa-code mr-2"></i>Case Study
-                            </a>
-                        </div>
-                    </div>
-                </div>                <!-- WordPress Website Maintenance & Security -->
-                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="maintenance wordpress">
+
+                <!-- ICT Brigada Document Processing System -->
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
                     <div class="relative">
-                        <img src="Web Development Portfolio/4.png" alt="WordPress Maintenance & Security" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="Web Development Portfolio/6.png" alt="ICT Brigada Document Processing System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
-                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="maintenance">
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="ict-brigada-docs">
                                         <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
@@ -571,95 +598,55 @@
                     </div>
                     <div class="p-8">
                         <div class="flex items-center mb-4">
-                            <div class="bg-gradient-to-br from-emerald-400 to-emerald-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
-                                <i class="fas fa-shield-alt text-lg"></i>
-                            </div>
-                            <div>                                <h3 class="text-2xl font-bold text-primary font-display">WordPress Security & Maintenance Suite</h3>
-                                <p class="text-text-secondary font-medium">Comprehensive Site Protection</p>
-                            </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
-                            A comprehensive WordPress security and maintenance solution providing proactive threat detection, automated security patching, performance optimization, and 24/7 monitoring. Features include malware scanning, firewall protection, backup automation, and emergency response services.
-                        </p>
-                        <div class="mb-6">
-                            <h4 class="font-semibold text-primary mb-3 flex items-center">
-                                <i class="fas fa-star text-accent mr-2"></i>Key Services
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Proactive threat detection & prevention</li>
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automated security patch management</li>
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Real-time malware scanning & removal</li>
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Performance optimization & CDN setup</li>
-                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Emergency response & recovery services</li>
-                            </ul>
-                        </div>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">WordPress</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">Security</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">Backup Management</span>
-                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">Performance</span>
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Monitoring</span>
-                        </div>
-                        <div class="flex gap-4">
-                            <a href="#" class="flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
-                                <i class="fas fa-chart-line mr-2"></i>Service Details
-                            </a>
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
-                                <i class="fas fa-headset mr-2"></i>Contact VA
-                            </a>
-                        </div>
-                    </div>
-                </div>                <!-- WordPress Migration & Optimization Service -->                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
-                    <div class="relative">
-                        <img src="Web Development Portfolio/6.png" alt="WordPress Migration & Optimization" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="absolute bottom-4 left-4 right-4">
-                                <div class="flex gap-2">                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="ict-brigada-docs">
-                                        <i class="fas fa-images mr-2"></i> View Gallery
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex items-center mb-4">                            <div class="bg-gradient-to-br from-violet-400 to-violet-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                            <div class="bg-gradient-to-br from-violet-400 to-violet-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-file-signature text-lg"></i>
                             </div>
-                            <div>                                <h3 class="text-2xl font-bold text-primary font-display">ICT Brigada Document Processing System</h3>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">ICT Brigada Document Processing System</h3>
                                 <p class="text-text-secondary font-medium">Advanced Document Management & Verification</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             An enhanced document processing module for the ICT Brigada Registration system, featuring automated document verification, digital signature validation, batch processing capabilities, and comprehensive tracking for enrollment-related paperwork and certificates.
                         </p>
                         <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
-                                <i class="fas fa-star text-accent mr-2"></i>Key Services
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Features
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automated document verification and validation</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Digital signature processing and authentication</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Batch document upload with progress tracking</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Real-time processing status and notifications</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Comprehensive audit trail and document history</li>
                             </ul>
-                        </div>                        <div class="flex flex-wrap gap-2 mb-6">
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP 8.0</span>
                             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">JavaScript</span>
                             <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">File Processing API</span>
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Digital Signature</span>
                         </div>
-                        <div class="flex gap-4">                            <button class="gallery-btn flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl" data-project="ict-brigada-docs">
+                        <div class="flex gap-4">
+                            <button class="gallery-btn flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl" data-project="ict-brigada-docs">
                                 <i class="fas fa-images mr-2"></i>View Screenshots
                             </button>
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
-                                <i class="fas fa-headset mr-2"></i>Get Quote
-                            </a>
+                            <button class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>Details
+                            </button>
                         </div>
                     </div>
-                </div>                <!-- WordPress SEO & Virtual Assistant Services -->                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php ecommerce">
+                </div>
+
+                <!-- Restaurant Payment Processing System -->
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php ecommerce">
                     <div class="relative">
-                        <img src="Web Development Portfolio/8.png" alt="WordPress SEO & VA Services" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="Web Development Portfolio/8.png" alt="Restaurant Payment Processing System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
-                                <div class="flex gap-2">                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="payment-processing">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="payment-processing">
                                         <i class="fas fa-images mr-2"></i> View Gallery
                                     </button>
                                 </div>
@@ -667,44 +654,50 @@
                         </div>
                     </div>
                     <div class="p-8">
-                        <div class="flex items-center mb-4">                            <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
                                 <i class="fas fa-credit-card text-lg"></i>
-                            </div><div>
+                            </div>
+                            <div>
                                 <h3 class="text-2xl font-bold text-primary font-display">Restaurant Payment Processing System</h3>
                                 <p class="text-text-secondary font-medium">Digital Payment & Transaction Management</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             An advanced payment processing system for restaurant operations, featuring multiple payment methods integration, real-time transaction tracking, automated receipt generation, and comprehensive financial reporting. The system handles both cash and digital payments with detailed order history and transaction analytics.
                         </p>
                         <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
-                                <i class="fas fa-star text-accent mr-2"></i>Key Services
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Features
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Multiple payment methods integration (Cash, Card, Digital)</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Real-time transaction processing and validation</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automated receipt generation and printing</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Comprehensive financial reporting and analytics</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Order history tracking and customer management</li>
                             </ul>
-                        </div>                        <div class="flex flex-wrap gap-2 mb-6">
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
                             <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP 8.1</span>
                             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">Payment Gateway API</span>
                             <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">POS Integration</span>
                             <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Transaction Processing</span>
                         </div>
-                        <div class="flex gap-4">                            <button class="gallery-btn flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl" data-project="payment-processing">
+                        <div class="flex gap-4">
+                            <button class="gallery-btn flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl" data-project="payment-processing">
                                 <i class="fas fa-images mr-2"></i>View Screenshots
                             </button>
-                            <a href="#" class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
-                                <i class="fas fa-headset mr-2"></i>VA Services
-                            </a>
+                            <button class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>Details
+                            </button>
                         </div>
                     </div>
                 </div>                <!-- PopRock Attendance System -->
                 <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
                     <div class="relative">
-                        <img src="Web Development Portfolio/10.png" alt="PopRock Attendance System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <img src="project-images/poprock-attendance-system/05ed429c-b8f9-4cca-9cd1-1ca3e0d864ee.png" alt="PopRock Attendance System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div class="absolute bottom-4 left-4 right-4">
                                 <div class="flex gap-2">
@@ -724,13 +717,15 @@
                                 <h3 class="text-2xl font-bold text-primary font-display">PopRock Attendance System</h3>
                                 <p class="text-text-secondary font-medium">Biometric Employee Tracking</p>
                             </div>
-                        </div>                        <p class="text-text-secondary mb-6 leading-relaxed">
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
                             A web app that replaces traditional Microsoft Excel time tracking, reducing the time required to determine work hours based on attendance periods set by HR. With uploaded files from biometric devices, the system automatically computes time-in/out, late arrivals, and absences—streamlining attendance tracking. Payroll processing is significantly faster with automated calculations.
                         </p>
                         <div class="mb-6">
                             <h4 class="font-semibold text-primary mb-3 flex items-center">
                                 <i class="fas fa-star text-accent mr-2"></i>Key Features
-                            </h4>                            <ul class="text-sm text-text-secondary space-y-2">
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Biometric device integration and file upload</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Automated time-in/out calculation system</li>
                                 <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Late arrivals and absence tracking</li>
@@ -742,7 +737,8 @@
                             <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP 8.2</span>
                             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
                             <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">Chart.js</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">Biometric API</span>                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Excel Import</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">Biometric API</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">Excel Import</span>
                         </div>
                         <div class="flex gap-4">
                             <button class="gallery-btn flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl" data-project="poprock-attendance">
@@ -810,9 +806,9 @@
                             </button>
                         </div>
                     </div>
-                </div></div>
+                </div>            </div>
         </div>
-    </section><!-- Image Gallery Modal -->
+    </section>
     <div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden">
         <div class="flex items-center justify-center min-h-screen p-4">
             <div class="relative max-w-4xl w-full">
@@ -895,54 +891,42 @@
             </div>
         </div>
     </footer><script>        // Project galleries data
-        const projectGalleries = {
-            'teacher-evaluation': {
+        const projectGalleries = {            'teacher-evaluation': {
                 title: 'Teacher Evaluation System Gallery',
                 images: [
-                    { src: 'Web Development Portfolio/3.png', alt: 'Teacher evaluation form interface' },
-                    { src: 'Web Development Portfolio/7.png', alt: 'Performance tracking dashboard' },
-                    { src: 'Web Development Portfolio/9.png', alt: 'Administrative reporting system' },
-                    { src: 'Web Development Portfolio/11.png', alt: 'Evaluation scheduling system' },                    { src: 'Web Development Portfolio/5.png', alt: 'Teacher profile management' }
+                    { src: 'project-images/teacher-evaluation-system/2fa66eaa-4e4a-498f-97f3-18b1781efa23.png', alt: 'Teacher evaluation form interface' },
+                    { src: 'project-images/teacher-evaluation-system/454dc19d-fcfa-42b3-8f76-6ac59ce969bb.png', alt: 'Performance tracking dashboard' },
+                    { src: 'project-images/teacher-evaluation-system/daa3a0e1-4f23-400f-ae74-657673acab16.png', alt: 'Administrative reporting system' }
                 ]
-            },
-            'graduation-attendance': {
+            },            'graduation-attendance': {
                 title: 'Graduation Attendance System Gallery',
                 images: [
-                    { src: 'Web Development Portfolio/4.png', alt: 'Graduation attendance dashboard' },
-                    { src: 'Web Development Portfolio/6.png', alt: 'Student registration interface' },
-                    { src: 'Web Development Portfolio/8.png', alt: 'Real-time attendance tracking' },
-                    { src: 'Web Development Portfolio/10.png', alt: 'Administrative analytics' },
-                    { src: 'Web Development Portfolio/12.png', alt: 'Export and reporting features' }
+                    { src: 'project-images/graduation-attendance-system/4092cb26-f7ec-4330-ae96-468d51161378.png', alt: 'Graduation attendance dashboard' },
+                    { src: 'project-images/graduation-attendance-system/5661fe12-199d-4efb-aed0-7267f81b798f.png', alt: 'QR code verification interface' },
+                    { src: 'project-images/graduation-attendance-system/7c869ab6-8e0e-421e-a382-1dd02a8cba8d.png', alt: 'Real-time attendance tracking' },
+                    { src: 'project-images/graduation-attendance-system/a9d0e90e-fbfa-4901-aad0-1935c4d2316d.png', alt: 'Administrative analytics and reporting' }
                 ]
-            },
-            'ict-brigada': {
+            },            'ict-brigada': {
                 title: 'ICT Brigada Registration App Gallery',
                 images: [
-                    { src: 'Web Development Portfolio/5.png', alt: 'Student registration form interface' },
-                    { src: 'Web Development Portfolio/6.png', alt: 'Document processing and verification' },
-                    { src: 'Web Development Portfolio/3.png', alt: 'Administrative dashboard overview' },
-                    { src: 'Web Development Portfolio/9.png', alt: 'Registration analytics and reports' },
-                    { src: 'Web Development Portfolio/11.png', alt: 'Teacher enrollment management' }
+                    { src: 'project-images/ici-brigada-registration-app/3b9106bb-9c68-407c-8fd3-d143cb3a91a8.png', alt: 'Student registration form interface' },
+                    { src: 'project-images/ici-brigada-registration-app/4bcf3b88-39b1-4c02-86f2-3d8bc433af0b.png', alt: 'Document processing and verification' },
+                    { src: 'project-images/ici-brigada-registration-app/8462fea6-ed53-4470-8c1f-7e0702771676.png', alt: 'Administrative dashboard and analytics' }
                 ]
-            },
-            'restaurant-ordering': {
+            },            'restaurant-ordering': {
                 title: 'Tongs Restaurant Ordering App Gallery',
                 images: [
-                    { src: 'Web Development Portfolio/7.png', alt: 'Restaurant ordering interface' },
-                    { src: 'Web Development Portfolio/8.png', alt: 'Payment processing system' },
-                    { src: 'Web Development Portfolio/4.png', alt: 'Kitchen receipt printing' },
-                    { src: 'Web Development Portfolio/10.png', alt: 'Inventory management integration' },
-                    { src: 'Web Development Portfolio/12.png', alt: 'Order analytics and reporting' }
+                    { src: 'project-images/tongs-ordering-system/0fae34c9-6fb7-4f51-96f7-a880850a5e73.png', alt: 'Restaurant ordering interface' },
+                    { src: 'project-images/tongs-ordering-system/406858fc-576b-45b9-a629-f82dc58321fc.png', alt: 'Menu management system' },
+                    { src: 'project-images/tongs-ordering-system/a7d76cba-ffb5-4edb-a5e8-3863b53e4431.png', alt: 'Order processing dashboard' },
+                    { src: 'project-images/tongs-ordering-system/e00895b2-8ed7-44d7-94b8-e4e599df8853.png', alt: 'Inventory management integration' }
                 ]
-            },
-            'poprock-attendance': {
+            },            'poprock-attendance': {
                 title: 'PopRock Attendance System Gallery',
                 images: [
-                    { src: 'Web Development Portfolio/10.png', alt: 'Biometric attendance dashboard' },
-                    { src: 'Web Development Portfolio/9.png', alt: 'Employee attendance analytics' },
-                    { src: 'Web Development Portfolio/3.png', alt: 'Payroll processing interface' },
-                    { src: 'Web Development Portfolio/5.png', alt: 'Time tracking configuration' },
-                    { src: 'Web Development Portfolio/7.png', alt: 'Attendance reports and exports' }
+                    { src: 'project-images/poprock-attendance-system/05ed429c-b8f9-4cca-9cd1-1ca3e0d864ee.png', alt: 'Biometric attendance dashboard' },
+                    { src: 'project-images/poprock-attendance-system/0f8979cc-c56b-46d1-bc25-0972fa136749.png', alt: 'Employee attendance analytics' },
+                    { src: 'project-images/poprock-attendance-system/e932b553-9e4f-4e60-95d4-4b2c1f64868f.png', alt: 'Payroll processing and reporting' }
                 ]
             },
             'analytics-dashboard': {
