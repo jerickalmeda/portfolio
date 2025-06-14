@@ -246,7 +246,65 @@
                 <h2 class="text-4xl md:text-5xl font-bold text-primary font-display mb-6">Development Portfolio</h2>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">Showcasing custom PHP systems, WordPress solutions, and web applications across various industries</p>
             </div>
-              <div id="projects-grid" class="grid lg:grid-cols-2 gap-8">                  <!-- Teacher Evaluation System -->
+              <div id="projects-grid" class="grid lg:grid-cols-2 gap-8">                
+                <!-- Lucky Draw Lots System -->
+                <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
+                    <div class="relative">
+                        <img src="project-images/lucky-draw-lots-system/1.png" alt="Multi-Event Lucky Draw System" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="flex gap-2">
+                                    <button class="gallery-btn glass-effect text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/20 transition-colors" data-project="lucky-draw-system">
+                                        <i class="fas fa-images mr-2"></i> View Gallery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gradient-to-br from-amber-400 to-amber-600 text-white w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-dice text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-primary font-display">Multi-Event Lucky Draw System</h3>
+                                <p class="text-text-secondary font-medium">Professional Lottery & Event Management</p>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
+                            A professional web-based lucky draw application featuring jackpot-style slot machine animations and comprehensive event management. Designed for corporate events, festivals, trade shows, and promotional activities with stunning visual effects, confetti celebrations, and robust admin panel for multi-event participant management.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <i class="fas fa-star text-accent mr-2"></i>Key Features
+                            </h4>
+                            <ul class="text-sm text-text-secondary space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Jackpot-style slot machine animation with authentic rolling effects</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Multi-event participant registration and management</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Confetti celebration and visual effects for winners</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Fullscreen mode with countdown timers and gradual slowdown</li>
+                                <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i>Comprehensive admin panel with CSV export and analytics</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full font-medium">PHP 8.1</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full font-medium">MySQL</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium">JavaScript ES6+</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full font-medium">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full font-medium">CSS Animations</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <button class="gallery-btn flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-white text-center py-3 px-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl" data-project="lucky-draw-system">
+                                <i class="fas fa-images mr-2"></i>View Screenshots
+                            </button>
+                            <button class="flex-1 bg-primary hover:bg-secondary text-white text-center py-3 px-4 rounded-xl font-medium transition-colors duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Evaluation System -->
                 <div class="project-card group card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-slate-200" data-category="php custom">
                     <div class="relative">
                         <img src="project-images/teacher-evaluation-system/2fa66eaa-4e4a-498f-97f3-18b1781efa23.png" alt="Teacher Evaluation System for a Senior High School" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
@@ -891,7 +949,19 @@
             </div>
         </div>
     </footer><script>        // Project galleries data
-        const projectGalleries = {            'teacher-evaluation': {
+        const projectGalleries = {
+            'lucky-draw-system': {
+                title: 'Multi-Event Lucky Draw System Gallery',
+                images: [
+                    { src: 'project-images/lucky-draw-lots-system/1.png', alt: 'Lucky draw main interface with jackpot animation' },
+                    { src: 'project-images/lucky-draw-lots-system/2.png', alt: 'Event management and participant registration' },
+                    { src: 'project-images/lucky-draw-lots-system/3.png', alt: 'Admin dashboard with analytics and statistics' },
+                    { src: 'project-images/lucky-draw-lots-system/4.png', alt: 'Fullscreen draw mode with countdown timer' },
+                    { src: 'project-images/lucky-draw-lots-system/5.png', alt: 'Winner celebration with confetti effects' },
+                    { src: 'project-images/lucky-draw-lots-system/6.png', alt: 'Participant management and CSV export features' }
+                ]
+            },
+            'teacher-evaluation': {
                 title: 'Teacher Evaluation System Gallery',
                 images: [
                     { src: 'project-images/teacher-evaluation-system/2fa66eaa-4e4a-498f-97f3-18b1781efa23.png', alt: 'Teacher evaluation form interface' },

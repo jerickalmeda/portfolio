@@ -29,6 +29,7 @@ portfolio/
 ├── about.html             # Professional background and journey
 ├── contact.html           # Contact information and inquiry form
 ├── project-images/        # Organized project screenshots
+│   ├── lucky-draw-lots-system/         # (6 images)
 │   ├── teacher-evaluation-system/      # (3 images)
 │   ├── graduation-attendance-system/   # (4 images)
 │   ├── ici-brigada-registration-app/   # (3 images)
@@ -68,9 +69,10 @@ portfolio/
 - Tools, DevOps, and hosting technologies
 
 ### 3. Projects (`projects.html`)
-- **17 Featured Projects** across PHP systems and WordPress development
+- **18 Featured Projects** across PHP systems and WordPress development
 - Project filtering by category (PHP Systems, WordPress, E-Commerce, Web Apps, Maintenance)
 - **Interactive image galleries** with organized project-specific folders:
+  - Multi-Event Lucky Draw System (6 screenshots)
   - Teacher Evaluation System (3 screenshots)
   - Graduation Attendance System (4 screenshots) 
   - ICT Brigada Registration App (3 screenshots)
@@ -98,6 +100,7 @@ This portfolio features an organized image structure with project-specific folde
 
 ```
 project-images/
+├── lucky-draw-lots-system/         # Event management and lottery system
 ├── teacher-evaluation-system/      # Educational management system
 ├── graduation-attendance-system/   # QR code-based attendance tracking
 ├── ici-brigada-registration-app/   # Student enrollment platform
@@ -114,6 +117,7 @@ project-images/
 
 ### Featured Projects
 My portfolio showcases diverse PHP and WordPress projects including:
+- **Event Management Systems**: Multi-event lucky draw with jackpot animations
 - **Educational Systems**: Teacher evaluation and student management
 - **Business Applications**: Restaurant ordering and inventory management  
 - **Attendance Systems**: QR code and biometric solutions
@@ -190,7 +194,7 @@ The contact form on my portfolio website includes options for different project 
 1. **Image Organization**
    - Project-specific image folders for better management
    - Optimized PNG images for web delivery
-   - Organized gallery system with 17 total screenshots
+   - Organized gallery system with 23 total screenshots
 
 2. **Code Efficiency**
    - Tailwind CSS for minimal, utility-first styling
